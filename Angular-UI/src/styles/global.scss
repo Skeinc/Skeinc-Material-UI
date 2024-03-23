@@ -1,3 +1,6 @@
+// Imports
+@import './variables.scss';
+
 // Global
 * {
     margin: 0;
@@ -68,4 +71,22 @@ li {
     font-family: 'Montserrat';
     src: url('../assets/fonts/Montserrat/Montserrat-Black.ttf') format('truetype');
     font-weight: 900;
+}
+
+// Flex
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
