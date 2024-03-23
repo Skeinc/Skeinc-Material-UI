@@ -1,16 +1,16 @@
 import { NgModule } from "@angular/core";
-import { GeneralComponent } from "./components/general.component";
 import { RouterOutlet } from "@angular/router";
+import { ApplicationComponent } from "./components/application.component";
 
 @NgModule({
     declarations: [
-        GeneralComponent,
+        ApplicationComponent,
     ],
     imports: [
         RouterOutlet,
     ],
     exports: [
-        GeneralComponent,
+        ApplicationComponent,
     ]
 })
-export class GeneralModule {}
+export class ApplicationModule {}

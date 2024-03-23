@@ -1,10 +1,10 @@
 import { Routes } from "@angular/router";
-import { GeneralComponent } from "../../modules/general/components/general.component";
+import { ApplicationComponent } from "../../modules/application/components/application.component";
 
 export const ROUTES: Routes = [
     {
         path: '',
-        component: GeneralComponent,
+        component: ApplicationComponent,
     },
     {
         path: '**',

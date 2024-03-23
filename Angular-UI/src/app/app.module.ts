@@ -5,7 +5,7 @@ import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from "./app.component";
-import { GeneralModule } from "./modules/general/general.module";
+import { ApplicationModule } from "./modules/application/application.module";
 
 @NgModule({
     declarations: [
@@ -18,7 +18,7 @@ import { GeneralModule } from "./modules/general/general.module";
         FormsModule,
         HttpClientModule,
         // Modules
-        GeneralModule,
+        ApplicationModule,
     ],
     providers: [
 
