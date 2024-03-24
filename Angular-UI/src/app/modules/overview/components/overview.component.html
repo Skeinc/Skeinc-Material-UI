@@ -8,10 +8,21 @@
             <p class="title">Text Field</p>
             <div class="article-component">
                 <app-text-field [config]="{
-                    id: 'textField-defalut',
-                    name: 'textField-default',
-                    label: 'Login',
+                    id: 'textfield-defalut',
+                    name: 'textfield-default',
+                    placeholder: 'Login',
                 }"></app-text-field>
+            </div>
+        </article>
+
+        <article class="flex-column">
+            <p class="title">Password Field</p>
+            <div class="article-component">
+                <app-password-field [config]="{
+                    id: 'passwordfield-defalut',
+                    name: 'passwordfield-default',
+                    placeholder: 'Password',
+                }"></app-password-field>
             </div>
         </article>
     </main>
