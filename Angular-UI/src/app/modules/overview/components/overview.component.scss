@@ -1,0 +1,20 @@
+@import '@styles/global.scss';
+@import '@styles/variables.scss';
+
+article {
+    width: 100%;
+    height: auto;
+    padding: 12px;
+    gap: 12px;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: auto;
+    color: $colorDark2;
+}
+
+.article-component {
+    width: 250px;
+}

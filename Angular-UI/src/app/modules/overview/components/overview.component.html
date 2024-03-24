@@ -4,11 +4,16 @@
     </header>
 
     <main class="main">
-        <h2>Text Field</h2>
-        <app-text-field [config]="{
-            id: 'textField-defalut',
-            name: 'textField-default'
-        }"></app-text-field>
+        <article class="flex-column">
+            <p class="title">Text Field</p>
+            <div class="article-component">
+                <app-text-field [config]="{
+                    id: 'textField-defalut',
+                    name: 'textField-default',
+                    label: 'Login',
+                }"></app-text-field>
+            </div>
+        </article>
     </main>
 
     <footer class="footer">
