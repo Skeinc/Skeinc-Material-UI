@@ -4,6 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { OverviewComponent } from "./components/overview.component";
 import { TextFieldModule } from "../../shared/components/text-field/text-field.module";
 import { PasswordFieldModule } from "../../shared/components/password-field/password-field.module";
+import { PhoneFieldModule } from "../../shared/components/phone-field/phone-field.module";
 
 @NgModule({
     declarations: [
@@ -15,6 +16,7 @@ import { PasswordFieldModule } from "../../shared/components/password-field/pass
         // Components
         TextFieldModule,
         PasswordFieldModule,
+        PhoneFieldModule,
     ],
     exports: [
         OverviewComponent,

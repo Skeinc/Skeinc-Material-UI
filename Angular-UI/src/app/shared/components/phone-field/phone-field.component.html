@@ -1,0 +1,12 @@
+<div class="component">
+    <input class="phonefield-input" autocomplete="off"
+        [type]="'tel'"
+        [id]="config.id"
+        [name]="config.name"
+        [placeholder]="config.placeholder ?? ''"
+        [value]="config.value ?? ''"
+        [required]="config.required"
+        [readOnly]="config.readonly"
+        [disabled]="config.disabled"
+        [appPhoneNumberPattern]="phoneNumberPatterns">
+</div>
