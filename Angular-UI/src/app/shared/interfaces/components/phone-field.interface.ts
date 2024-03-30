@@ -7,4 +7,5 @@ export interface PhoneFieldInterface {
     required?: boolean;
     readonly?: boolean;
     disabled?: boolean;
+    valid?: boolean;
 }

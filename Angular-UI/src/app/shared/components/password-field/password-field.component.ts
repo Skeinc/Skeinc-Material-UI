@@ -15,6 +15,8 @@ export class PasswordFieldComponent {
 
     // Метод для смены видимости пароля
     togglePasswordVisible(): void {
-        this.isVisiblePassword = !this.isVisiblePassword;
+        if(!this.config.disabled) {
+            this.isVisiblePassword = !this.isVisiblePassword;
+        }
     }
 }

@@ -9,4 +9,6 @@
         [readOnly]="config.readonly"
         [disabled]="config.disabled"
         [appPhoneNumberPattern]="phoneNumberPatterns">
+
+    <label *ngIf="config.label" [for]="config.id" class="phonefield-label">{{ config.label }}</label>
 </div>

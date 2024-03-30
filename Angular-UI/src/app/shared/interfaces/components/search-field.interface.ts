@@ -1,4 +1,4 @@
-export interface TextFieldInterface {
+export interface SearchFieldInterface {
     id: string;
     name: string;
     label?: string;

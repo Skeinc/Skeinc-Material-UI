@@ -7,4 +7,5 @@ export interface PasswordFieldInterface {
     required?: boolean;
     readonly?: boolean;
     disabled?: boolean;
+    valid?: boolean;
 }

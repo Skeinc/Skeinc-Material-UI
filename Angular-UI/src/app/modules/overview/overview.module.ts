@@ -5,6 +5,7 @@ import { OverviewComponent } from "./components/overview.component";
 import { TextFieldModule } from "../../shared/components/text-field/text-field.module";
 import { PasswordFieldModule } from "../../shared/components/password-field/password-field.module";
 import { PhoneFieldModule } from "../../shared/components/phone-field/phone-field.module";
+import { SearchFieldModule } from "../../shared/components/search-field/search-field.module";
 
 @NgModule({
     declarations: [
@@ -17,6 +18,7 @@ import { PhoneFieldModule } from "../../shared/components/phone-field/phone-fiel
         TextFieldModule,
         PasswordFieldModule,
         PhoneFieldModule,
+        SearchFieldModule,
     ],
     exports: [
         OverviewComponent,
