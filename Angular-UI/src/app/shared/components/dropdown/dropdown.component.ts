@@ -1,12 +1,11 @@
 import { Component, Input } from "@angular/core";
-import { TextFieldInterface } from "../../interfaces/components/text-field.interface";
 
 @Component({
-    selector: 'app-text-field',
-    templateUrl: './text-field.component.html',
-    styleUrl: './text-field.component.scss',
+    selector: 'app-dropdown',
+    templateUrl: './dropdown.component.html',
+    styleUrl: './dropdown.component.scss',
 })
-export class TextFieldComponent {
+export class DropdownComponent {
     // ID элемента
     @Input() elementID?: string | null = null;
 
@@ -25,15 +24,9 @@ export class TextFieldComponent {
     // Required параметр элемента
     @Input() elementRequired?: boolean;
 
-    // Readonly параметр элемента
-    @Input() elementReadonly?: boolean;
-
     // Disable параметр элемента
     @Input() elementDisable?: boolean;
 
     // Valid параметр элемента
     @Input() elementValid?: boolean;
-
-    // Конфигурация компонента
-    @Input() config?: TextFieldInterface;
 }

@@ -1,15 +1,19 @@
 <div class="component">
     <input class="searchfield-input" type="text" autocomplete="off"
-        [id]="config.id"
-        [name]="config.name"
-        [placeholder]="config.placeholder ?? ''"
-        [value]="config.value ?? ''"
-        [required]="config.required"
-        [readOnly]="config.readonly"
-        [disabled]="config.disabled"
-        (input)="onSearchField($event)">
+        [id]="elementID"
+        [name]="elementName"
+        [placeholder]="elementPlaceholder ?? ''"
+        [value]="elementValue"
+        [required]="elementRequired"
+        [readOnly]="elementReadonly"
+        [disabled]="elementDisable"
+        (input)="onSearchField($event)"
+        [style.height]="config?.height ?? ''"
+        [style.backgroundColor]="config?.backgroundColor ?? ''"
+        [style.borderColor]="config?.borderColor ?? ''"
+        [style.color]="config?.color ?? ''">
 
-    <label *ngIf="config.label" [for]="config.id" class="searchfield-label">{{ config.label }}</label>
+    <label *ngIf="elementLabel" [for]="elementID" class="searchfield-label">{{ elementLabel }}</label>
 
-    <span *ngIf="config.value && config.value.length >= 1" class="material-icons searchfield-icon" (click)="clearSearchField()">{{ 'close' }}</span>
+    <span *ngIf="elementValue && elementValue.length >= 1" class="material-icons searchfield-icon" (click)="clearSearchField()">{{ 'close' }}</span>
 </div>

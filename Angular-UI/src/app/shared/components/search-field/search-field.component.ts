@@ -7,16 +7,43 @@ import { SearchFieldInterface } from "../../interfaces/components/search-field.i
     styleUrl: './search-field.component.scss',
 })
 export class SearchFieldComponent {
+    // ID элемента
+    @Input() elementID?: string | null = null;
+
+    // Name элемента
+    @Input() elementName?: string | null = null;
+
+    // Label элемента
+    @Input() elementLabel?: string  | null = null;
+
+    // Value элемента
+    @Input() elementValue?: string  | null = null;
+
+    // Placeholder элемента
+    @Input() elementPlaceholder?: string  | null = null;
+
+    // Required параметр элемента
+    @Input() elementRequired?: boolean;
+
+    // Readonly параметр элемента
+    @Input() elementReadonly?: boolean;
+
+    // Disable параметр элемента
+    @Input() elementDisable?: boolean;
+
+    // Valid параметр элемента
+    @Input() elementValid?: boolean;
+
     // Конфигурация компонента
-    @Input() config!: SearchFieldInterface;
+    @Input() config?: SearchFieldInterface;
 
     // Метод обработки ввода
     onSearchField(event: any): void {
-        this.config.value = event.target.value;
+        this.elementValue = event.target.value;
     }
 
     // Метод для очистки поля ввода
     clearSearchField(): void {
-        this.config.value = '';
+        this.elementValue = '';
     }
 }

@@ -7,48 +7,35 @@
         <article class="flex-column">
             <p class="title">Text Field</p>
             <div class="article-component">
-                <app-text-field [config]="{
-                    id: 'textfield-defalut',
-                    name: 'textfield-default',
-                    placeholder: 'Login',
-                    valid: false,
-                }"></app-text-field>
+                <app-text-field [elementID]="'textfield-default'" [elementName]="'textfield-default'" [elementPlaceholder]="'Your name'"></app-text-field>
             </div>
         </article>
 
         <article class="flex-column">
             <p class="title">Password Field</p>
             <div class="article-component">
-                <app-password-field [config]="{
-                    id: 'passwordfield-defalut',
-                    name: 'passwordfield-default',
-                    placeholder: 'Password',
-                    valid: true,
-                }"></app-password-field>
+                <app-password-field [elementID]="'passwordfield-default'" [elementName]="'passwordfield-default'" [elementPlaceholder]="'Password'"></app-password-field>
             </div>
         </article>
 
         <article class="flex-column">
             <p class="title">Phone Field</p>
             <div class="article-component">
-                <app-phone-field [config]="{
-                    id: 'phonefield-default',
-                    name: 'phonefield-default',
-                    placeholder: 'Phone',
-                    valid: true,
-                }"></app-phone-field>
+                <app-phone-field [elementID]="'phonefield-default'" [elementName]="'phonefield-default'" [elementPlaceholder]="'Phone'"></app-phone-field>
             </div>
         </article>
 
         <article class="flex-column">
             <p class="title">Search Field</p>
             <div class="article-component">
-                <app-search-field [config]="{
-                    id: 'searchfield-default',
-                    name: 'searchfield-default',
-                    placeholder: 'Search...',
-                    valid: true,
-                }"></app-search-field>
+                <app-search-field [elementID]="'searchfield-default'" [elementName]="'searchfield-default'" [elementPlaceholder]="'Search...'"></app-search-field>
+            </div>
+        </article>
+
+        <article class="flex-column">
+            <p class="title">Dropdown</p>
+            <div class="article-component">
+                <app-dropdown [elementID]="'dropdown-default'" [elementName]="'dropdown-default'" [elementPlaceholder]="'Select a city'"></app-dropdown>
             </div>
         </article>
     </main>

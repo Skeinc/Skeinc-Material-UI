@@ -1,0 +1,15 @@
+<div class="component">
+    <div class="input-area">
+        <input class="dropdown-input" type="text" autocomplete="off" readonly="true"
+        [id]="elementID"
+        [name]="elementName"
+        [placeholder]="elementPlaceholder ?? ''"
+        [value]="elementValue"
+        [required]="elementRequired"
+        [disabled]="elementDisable">
+
+        <span class="material-icons dropdown-icon">expand_more</span>
+
+        <label *ngIf="elementLabel" [for]="elementID" class="dropdown-label">{{ elementLabel }}</label>
+    </div>
+</div>

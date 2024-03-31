@@ -6,6 +6,7 @@ import { TextFieldModule } from "../../shared/components/text-field/text-field.m
 import { PasswordFieldModule } from "../../shared/components/password-field/password-field.module";
 import { PhoneFieldModule } from "../../shared/components/phone-field/phone-field.module";
 import { SearchFieldModule } from "../../shared/components/search-field/search-field.module";
+import { DropdownModule } from "../../shared/components/dropdown/dropdown.module";
 
 @NgModule({
     declarations: [
@@ -19,6 +20,7 @@ import { SearchFieldModule } from "../../shared/components/search-field/search-f
         PasswordFieldModule,
         PhoneFieldModule,
         SearchFieldModule,
+        DropdownModule,
     ],
     exports: [
         OverviewComponent,
