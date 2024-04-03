@@ -35,7 +35,7 @@
         <article class="flex-column">
             <p class="title">Dropdown</p>
             <div class="article-component">
-                <app-dropdown [elementID]="'dropdown-default'" [elementName]="'dropdown-default'" [elementPlaceholder]="'Select a city'"></app-dropdown>
+                <app-dropdown [elementID]="'dropdown-default'" [elementName]="'dropdown-default'" [(elementValue)]="selectedCity" [elementPlaceholder]="'Select a city'" [options]="citiesObject" [optionsLabel]="'name'" [optionsValue]="'name'" [clearOption]="true" [filter]="true"></app-dropdown>
             </div>
         </article>
     </main>
