@@ -8,6 +8,7 @@ import { PhoneFieldModule } from "../../shared/components/phone-field/phone-fiel
 import { SearchFieldModule } from "../../shared/components/search-field/search-field.module";
 import { DropdownModule } from "../../shared/components/dropdown/dropdown.module";
 import { TextareaModule } from "../../shared/components/textarea/textarea.module";
+import { SwitchModule } from "../../shared/components/switch/switch.module";
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import { TextareaModule } from "../../shared/components/textarea/textarea.module
         SearchFieldModule,
         DropdownModule,
         TextareaModule,
+        SwitchModule,
     ],
     exports: [
         OverviewComponent,
