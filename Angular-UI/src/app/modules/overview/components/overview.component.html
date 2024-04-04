@@ -38,6 +38,13 @@
                 <app-dropdown [elementID]="'dropdown-default'" [elementName]="'dropdown-default'" [(elementValue)]="selectedCity" [elementPlaceholder]="'Select a city'" [options]="citiesObject" [optionsLabel]="'name'" [optionsValue]="'name'" [clearOption]="true" [filter]="true"></app-dropdown>
             </div>
         </article>
+
+        <article class="flex-column">
+            <p class="title">Textarea</p>
+            <div class="article-component">
+                <app-textarea [elementID]="'textarea-default'" [elementName]="'textarea-default'" [elementPlaceholder]="'Description'" [elementCols]="30" [elementRows]="5" [resizable]="false"></app-textarea>
+            </div>
+        </article>
     </main>
 
     <footer class="footer">
