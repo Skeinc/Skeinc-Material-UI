@@ -9,6 +9,7 @@ import { SearchFieldModule } from "../../shared/components/search-field/search-f
 import { DropdownModule } from "../../shared/components/dropdown/dropdown.module";
 import { TextareaModule } from "../../shared/components/textarea/textarea.module";
 import { SwitchModule } from "../../shared/components/switch/switch.module";
+import { CodeFieldModule } from "../../shared/components/code-field/code-field.module";
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { SwitchModule } from "../../shared/components/switch/switch.module";
         DropdownModule,
         TextareaModule,
         SwitchModule,
+        CodeFieldModule,
     ],
     exports: [
         OverviewComponent,
