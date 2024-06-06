@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from "@angular/core";
+import { Component, ElementRef, Input, ViewChild } from "@angular/core";
 
 @Component({
     selector: 'app-code-field',
@@ -10,6 +10,9 @@ export class CodeFieldComponent {
         private elementRef: ElementRef,
     ) { }
 
+    // Значение кода
+    @Input() elementValue?: string | null;
+
     // DOM-элементы
     @ViewChild('codefieldFirst') codefieldFirst!: ElementRef;
     @ViewChild('codefieldSecond') codefieldSecond!: ElementRef;
@@ -17,16 +20,16 @@ export class CodeFieldComponent {
     @ViewChild('codefieldFourth') codefieldFourth!: ElementRef;
 
     // Первое значение элемента
-    codeFirstValue: number | null = null;
+    codeFirstValue: string = '';
 
     // Второе значение элемента
-    codeSecondValue: number | null = null;
+    codeSecondValue: string = '';
 
     // Третье значение элемента
-    codeThirdValue: number | null = null;
+    codeThirdValue: string = '';
 
     // Четвертое значение элемента
-    codeFourthValue: number | null = null;
+    codeFourthValue: string = '';
 
     // Метод, который проверяет значение на максимальную длину
     checkMaxLenght(event: any): void {
@@ -37,6 +40,8 @@ export class CodeFieldComponent {
 
     // Метод вызывается при вводе символов в поле
     onInput(event: any, currentInput: HTMLInputElement): void {
+        this.updateCodeValue();
+
         const value = event.target.value;
 
         if (value.length === 0) {
@@ -66,7 +71,31 @@ export class CodeFieldComponent {
         else {
             if(currentIndex > 0) {
                 fields[currentIndex - 1].focus();
+
+                switch(currentIndex) {
+                    case 0:
+                        this.codeFirstValue = '';
+                        break;
+                    case 1:
+                        this.codeSecondValue = '';
+                        break;
+                    case 2:
+                        this.codeThirdValue = '';
+                        break;
+                    case 3:
+                        this.codeFourthValue = '';
+                        break;
+                    default:
+                        break;
+                }
             }
+        }
+    }
+
+    // Метод для обновления значения кода
+    updateCodeValue(): void {
+        if(this.codeFirstValue && this.codeSecondValue && this.codeThirdValue && this.codeFourthValue) {
+            this.elementValue = this.codeFirstValue?.toString() + this.codeSecondValue?.toString() + this.codeThirdValue?.toString() + this.codeFourthValue?.toString();
         }
     }
 }

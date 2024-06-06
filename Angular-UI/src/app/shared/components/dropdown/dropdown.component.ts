@@ -54,7 +54,7 @@ export class DropdownComponent {
     filteredOptions: any[] = [];
 
     // Метод для контролирования видимости выпадающего списка
-    toggleDropdownVisible(): void {
+    public toggleDropdownVisible(): void {
         this.isDropdownVisible = !this.isDropdownVisible;
         if (this.isDropdownVisible && this.filter) {
             this.filteredOptions = this.options ? [...this.options] : [];
