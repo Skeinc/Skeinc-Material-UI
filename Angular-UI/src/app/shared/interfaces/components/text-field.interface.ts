@@ -1,6 +1,7 @@
-export interface TextFieldInterface {
-    height?: string;
+export interface TextfieldInterface {
     backgroundColor?: string;
     borderColor?: string;
     color?: string;
+    fontSize?: string;
+    textAlign?: string;
 }

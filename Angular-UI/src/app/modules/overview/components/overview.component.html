@@ -7,7 +7,15 @@
         <article class="flex-column">
             <p class="title">Text Field</p>
             <div class="article-component">
-                <app-text-field [elementID]="'textfield-default'" [elementName]="'textfield-default'" [elementPlaceholder]="'Your name'"></app-text-field>
+                <app-text-field [elementType]="'small'" [elementID]="'textfield-small'" [elementName]="'textfield-small'" [elementPlaceholder]="'Your name'" [elementDisable]="false"></app-text-field>
+            </div>
+
+            <div class="article-component">
+                <app-text-field [elementType]="'medium'" [elementID]="'textfield-medium'" [elementName]="'textfield-medium'" [elementPlaceholder]="'Enter your name'" [elementCaption]="'Name:'" [elementDisable]="false"></app-text-field>
+            </div>
+
+            <div class="article-component">
+                <app-text-field [elementType]="'large'" [elementID]="'textfield-large'" [elementName]="'textfield-large'" [elementLabel]="'Your name'" [elementDisable]="false"></app-text-field>
             </div>
         </article>
 

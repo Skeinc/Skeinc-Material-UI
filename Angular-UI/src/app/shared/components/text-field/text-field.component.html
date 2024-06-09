@@ -1,17 +1,28 @@
 <div class="component">
+    <!-- Caption -->
+    <p *ngIf="elementCaption" class="textfield-caption">{{ elementCaption }}</p>
+
+    <!-- Input -->
     <input class="textfield-input" type="text" autocomplete="off"
         [id]="elementID"
-        [name]="elementName"
+        [name]="elementName ?? ''"
         [placeholder]="elementPlaceholder ?? ''"
         [value]="elementValue"
-        [required]="elementRequired"
-        [readOnly]="elementReadonly"
-        [disabled]="elementDisable"
-        [style.height]="config?.height ?? ''"
+        [required]="elementRequired ?? false"
+        [readOnly]="elementReadonly ?? false"
+        [disabled]="elementDisable ?? false"
         [style.backgroundColor]="config?.backgroundColor ?? ''"
         [style.borderColor]="config?.borderColor ?? ''"
         [style.color]="config?.color ?? ''"
-        >
+        [style.fontSize]="config?.fontSize ?? ''"
+        [style.textAlign]="config?.textAlign ?? ''"
+        [(ngModel)]="elementValue"
+        (ngModelChange)="elementValueChange.emit($event)"
+        [class.textfield-input__small]="elementType  === 'small'"
+        [class.textfield-input__medium]="elementType  === 'medium'"
+        [class.textfield-input__large]="elementType  === 'large'"
+    >
 
+    <!-- Label -->
     <label *ngIf="elementLabel" [for]="elementID" class="textfield-label">{{ elementLabel }}</label>
 </div>

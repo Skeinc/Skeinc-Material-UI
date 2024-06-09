@@ -1,5 +1,6 @@
-import { Component, Input } from "@angular/core";
-import { TextFieldInterface } from "../../interfaces/components/text-field.interface";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { TextfieldInterface } from "../../interfaces/components/text-field.interface";
+import { Subject } from "rxjs";
 
 @Component({
     selector: 'app-text-field',
@@ -7,6 +8,10 @@ import { TextFieldInterface } from "../../interfaces/components/text-field.inter
     styleUrl: './text-field.component.scss',
 })
 export class TextFieldComponent {
+    private onDestroy$: Subject<void> = new Subject<void>();
+
+    @Output() elementValueChange = new EventEmitter<string>();
+
     // ID элемента
     @Input() elementID?: string | null = null;
 
@@ -15,6 +20,9 @@ export class TextFieldComponent {
 
     // Label элемента
     @Input() elementLabel?: string  | null = null;
+
+    // Caption элемента
+    @Input() elementCaption?: string  | null = null;
 
     // Value элемента
     @Input() elementValue?: string  | null = null;
@@ -35,5 +43,8 @@ export class TextFieldComponent {
     @Input() elementValid?: boolean;
 
     // Конфигурация компонента
-    @Input() config?: TextFieldInterface;
+    @Input() config?: TextfieldInterface;
+
+    // Входной параметр: тип компонента
+    @Input() elementType?: 'small' | 'medium' | 'large';
 }
