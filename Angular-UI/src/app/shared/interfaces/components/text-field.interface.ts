@@ -1,4 +1,4 @@
-export interface TextfieldInterface {
+export interface TextFieldInterface {
     backgroundColor?: string;
     borderColor?: string;
     color?: string;

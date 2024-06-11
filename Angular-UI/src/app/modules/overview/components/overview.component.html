@@ -22,7 +22,15 @@
         <article class="flex-column">
             <p class="title">Password Field</p>
             <div class="article-component">
-                <app-password-field [elementID]="'passwordfield-default'" [elementName]="'passwordfield-default'" [elementPlaceholder]="'Password'"></app-password-field>
+                <app-password-field [elementType]="'small'" [elementID]="'passwordfield-small'" [elementName]="'passwordfield-small'" [elementPlaceholder]="'Password'" [elementDisable]="false"></app-password-field>
+            </div>
+
+            <div class="article-component">
+                <app-password-field [elementType]="'medium'" [elementID]="'passwordfield-medium'" [elementName]="'passwordfield-medium'" [elementPlaceholder]="'Enter your password'" [elementCaption]="'Password:'" [elementDisable]="false"></app-password-field>
+            </div>
+
+            <div class="article-component">
+                <app-password-field [elementType]="'large'" [elementID]="'passwordfield-large'" [elementName]="'passwordfield-large'" [elementLabel]="'Your password'" [elementDisable]="false"></app-password-field>
             </div>
         </article>
 

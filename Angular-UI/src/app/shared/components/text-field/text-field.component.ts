@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { TextfieldInterface } from "../../interfaces/components/text-field.interface";
+import { TextFieldInterface } from "../../interfaces/components/text-field.interface";
 import { Subject } from "rxjs";
 
 @Component({
@@ -43,7 +43,7 @@ export class TextFieldComponent {
     @Input() elementValid?: boolean;
 
     // Конфигурация компонента
-    @Input() config?: TextfieldInterface;
+    @Input() config?: TextFieldInterface;
 
     // Входной параметр: тип компонента
     @Input() elementType?: 'small' | 'medium' | 'large';

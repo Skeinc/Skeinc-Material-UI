@@ -1,5 +1,6 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { PasswordFieldInterface } from "../../interfaces/components/password-field.interface";
+import { Subject } from "rxjs";
 
 @Component({
     selector: 'app-password-field',
@@ -7,6 +8,10 @@ import { PasswordFieldInterface } from "../../interfaces/components/password-fie
     styleUrl: './password-field.component.scss',
 })
 export class PasswordFieldComponent {
+    private onDestroy$: Subject<void> = new Subject<void>();
+
+    @Output() elementValueChange = new EventEmitter<string>();
+
     // ID элемента
     @Input() elementID?: string | null = null;
 
@@ -15,6 +20,9 @@ export class PasswordFieldComponent {
 
     // Label элемента
     @Input() elementLabel?: string  | null = null;
+
+    // Caption элемента
+    @Input() elementCaption?: string  | null = null;
 
     // Value элемента
     @Input() elementValue?: string  | null = null;
@@ -37,13 +45,16 @@ export class PasswordFieldComponent {
     // Конфигурация компонента
     @Input() config?: PasswordFieldInterface;
 
+    // Входной параметр: тип компонента
+    @Input() elementType?: 'small' | 'medium' | 'large';
+
     // Переменная, контролирующая видимость пароля
-    isVisiblePassword: boolean = false;
+    public isVisiblePassword: boolean = false;
 
     // Метод для смены видимости пароля
-    togglePasswordVisible(): void {
+    public togglePasswordVisible(): void {
         if(!this.elementDisable) {
             this.isVisiblePassword = !this.isVisiblePassword;
-        }
-    }
+        };
+    };
 }
