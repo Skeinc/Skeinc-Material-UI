@@ -1,6 +1,7 @@
 export interface PhoneFieldInterface {
-    height?: string;
     backgroundColor?: string;
     borderColor?: string;
     color?: string;
+    fontSize?: string;
+    textAlign?: string;
 }

@@ -37,7 +37,15 @@
         <article class="flex-column">
             <p class="title">Phone Field</p>
             <div class="article-component">
-                <app-phone-field [elementID]="'phonefield-default'" [elementName]="'phonefield-default'" [elementPlaceholder]="'Phone'"></app-phone-field>
+                <app-phone-field [elementType]="'small'" [elementID]="'phonefield-small'" [elementName]="'phonefield-small'" [elementPlaceholder]="'Phone'" [elementDisable]="false"></app-phone-field>
+            </div>
+
+            <div class="article-component">
+                <app-phone-field [elementType]="'medium'" [elementID]="'phonefield-medium'" [elementName]="'phonefield-medium'" [elementPlaceholder]="'Enter your phone'" [elementCaption]="'Phone:'" [elementDisable]="false"></app-phone-field>
+            </div>
+
+            <div class="article-component">
+                <app-phone-field [elementType]="'large'" [elementID]="'phonefield-large'" [elementName]="'phonefield-large'" [elementLabel]="'Phone'" [elementDisable]="false"></app-phone-field>
             </div>
         </article>
 
@@ -45,6 +53,14 @@
             <p class="title">Search Field</p>
             <div class="article-component">
                 <app-search-field [elementType]="'small'" [elementID]="'searchfield-small'" [elementName]="'searchfield-small'" [elementPlaceholder]="'Search...'" [elementDisable]="false"></app-search-field>
+            </div>
+
+            <div class="article-component">
+                <app-search-field [elementType]="'medium'" [elementID]="'searchfield-medium'" [elementName]="'searchfield-medium'" [elementPlaceholder]="'Search...'" [elementCaption]="'Search:'" [elementDisable]="false"></app-search-field>
+            </div>
+
+            <div class="article-component">
+                <app-search-field [elementType]="'large'" [elementID]="'searchfield-large'" [elementName]="'searchfield-large'" [elementLabel]="'Search...'" [elementDisable]="false"></app-search-field>
             </div>
         </article>
 

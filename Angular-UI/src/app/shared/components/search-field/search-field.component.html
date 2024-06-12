@@ -1,6 +1,6 @@
 <div class="component">
     <!-- Caption -->
-    <p *ngIf="elementCaption" class="textfield-caption">{{ elementCaption }}</p>
+    <p *ngIf="elementCaption" class="searchfield-caption">{{ elementCaption }}</p>
 
     <!-- Input -->
     <input class="searchfield-input" type="text" autocomplete="off"
@@ -28,4 +28,7 @@
 
     <!-- Icon -->
     <span *ngIf="elementValue && elementValue.length >= 1" class="material-icons searchfield-icon icon-remove" [style.marginTop]="elementCaption ? '10px' : ''" (click)="clearSearchField()">{{ 'close' }}</span>
+
+    <!-- Icon -->
+    <span class="material-icons searchfield-icon icon-search" [style.marginTop]="elementCaption ? '10px' : ''">{{ 'search' }}</span>
 </div>

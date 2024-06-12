@@ -1,18 +1,28 @@
 <div class="component">
-    <input class="phonefield-input" autocomplete="off"
-        [type]="'tel'"
+    <!-- Caption -->
+    <p *ngIf="elementCaption" class="phonefield-caption">{{ elementCaption }}</p>
+
+    <!-- Input -->
+    <input class="phonefield-input" autocomplete="off" type="tel"
         [id]="elementID"
-        [name]="elementName"
+        [name]="elementName ?? ''"
         [placeholder]="elementPlaceholder ?? ''"
         [value]="elementValue"
-        [required]="elementRequired"
-        [readOnly]="elementReadonly"
-        [disabled]="elementDisable"
+        [required]="elementRequired ?? false"
+        [readOnly]="elementReadonly ?? false"
+        [disabled]="elementDisable ?? false"
         [appPhoneNumberPattern]="phoneNumberPatterns"
-        [style.height]="config?.height ?? ''"
         [style.backgroundColor]="config?.backgroundColor ?? ''"
         [style.borderColor]="config?.borderColor ?? ''"
-        [style.color]="config?.color ?? ''">
+        [style.color]="config?.color ?? ''"
+        [style.fontSize]="config?.fontSize ?? ''"
+        [style.textAlign]="config?.textAlign ?? ''"
+        [class.phonefield-input__small]="elementType  === 'small'"
+        [class.phonefield-input__medium]="elementType  === 'medium'"
+        [class.phonefield-input__large]="elementType  === 'large'"
+        (input)="onInputHandler($event)"
+    >
 
-        <label *ngIf="elementLabel" [for]="elementID" class="phonefield-label">{{ elementLabel }}</label>
+    <!-- Label -->
+    <label *ngIf="elementLabel" [for]="elementID" class="phonefield-label">{{ elementLabel }}</label>
 </div>

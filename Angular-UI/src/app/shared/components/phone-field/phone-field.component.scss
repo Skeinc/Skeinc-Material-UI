@@ -8,22 +8,24 @@
 
 .phonefield-input {
     width: 100%;
-    height: 45px;
     appearance: none;
     outline: none;
     border: 1px solid $inputBorder;
     background-color: $inputBackground;
     border-radius: 10px;
-    padding: 10px 16px;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 18px;
-    color: $colorDark2;
+    font-size: 15px;
+    line-height: auto;
+    letter-spacing: -0.4px;
+    color: $colorDark4;
     transition: $transitionMedium;
-    cursor: text;
 
     &:hover {
         border-radius: 14px;
+    }
+
+    &:read-only {
+        color: $colorGrey4;
     }
 
     &:disabled {
@@ -43,6 +45,7 @@
         ~ .phonefield-label {
             top: 0%;
             transform: translateY(0%);
+            margin: 0px 16px;
             font-weight: 500;
             font-size: 10px;
             line-height: 12px;
@@ -50,9 +53,8 @@
     }
 
     &::placeholder {
-        color: $colorGrey3;
+        color: $colorGrey4;
     }
-
 }
 
 .phonefield-label {
@@ -61,10 +63,27 @@
     left: 0px;
     transform: translateY(-50%);
     pointer-events: none;
-    margin: 0px 16px;
+    margin: 0px 32px;
     font-weight: 500;
     font-size: 14px;
-    line-height: 18px;
-    color: $colorGrey3;
+    line-height: auto;
+    letter-spacing: -0.4px;
+    color: $colorGrey4;
     transition: $transitionMedium;
+}
+
+.phonefield-input__small {
+    height: 32px;
+    padding: 10px 16px;
+    font-size: 12px;
+}
+
+.phonefield-input__medium {
+    height: 40px;
+    padding: 10px 16px;
+}
+
+.phonefield-input__large {
+    height: 60px;
+    padding: 10px 16px;
 }

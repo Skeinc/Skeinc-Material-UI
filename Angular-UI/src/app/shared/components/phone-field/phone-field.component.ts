@@ -1,6 +1,7 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { PHONE_NUMBER_PATTERNS } from "../../constants/phone-number-patterns.constant";
 import { PhoneFieldInterface } from "../../interfaces/components/phone-field.interface";
+import { Subject } from "rxjs";
 
 @Component({
     selector: 'app-phone-field',
@@ -8,6 +9,10 @@ import { PhoneFieldInterface } from "../../interfaces/components/phone-field.int
     styleUrl: './phone-field.component.scss',
 })
 export class PhoneFieldComponent {
+    private onDestroy$: Subject<void> = new Subject<void>();
+
+    @Output() elementValueChange = new EventEmitter<string>();
+
     // ID элемента
     @Input() elementID?: string | null = null;
 
@@ -16,6 +21,9 @@ export class PhoneFieldComponent {
 
     // Label элемента
     @Input() elementLabel?: string  | null = null;
+
+    // Caption элемента
+    @Input() elementCaption?: string  | null = null;
 
     // Value элемента
     @Input() elementValue?: string  | null = null;
@@ -38,6 +46,16 @@ export class PhoneFieldComponent {
     // Конфигурация компонента
     @Input() config?: PhoneFieldInterface;
 
+    // Входной параметр: тип компонента
+    @Input() elementType?: 'small' | 'medium' | 'large';
+
     // Паттерны телефоных номеров различных стран
     phoneNumberPatterns: string[] = PHONE_NUMBER_PATTERNS;
+
+    // Метод для обработки ввода
+    public onInputHandler(event: any) {
+        const inputValue = (event.target as HTMLInputElement).value;
+        
+        this.elementValueChange.emit(inputValue);
+    };
 }
