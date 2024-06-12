@@ -1,5 +1,6 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { SearchFieldInterface } from "../../interfaces/components/search-field.interface";
+import { Subject } from "rxjs";
 
 @Component({
     selector: 'app-search-field',
@@ -7,6 +8,10 @@ import { SearchFieldInterface } from "../../interfaces/components/search-field.i
     styleUrl: './search-field.component.scss',
 })
 export class SearchFieldComponent {
+    private onDestroy$: Subject<void> = new Subject<void>();
+
+    @Output() elementValueChange = new EventEmitter<string>();
+
     // ID элемента
     @Input() elementID?: string | null = null;
 
@@ -15,6 +20,9 @@ export class SearchFieldComponent {
 
     // Label элемента
     @Input() elementLabel?: string  | null = null;
+
+    // Caption элемента
+    @Input() elementCaption?: string  | null = null;
 
     // Value элемента
     @Input() elementValue?: string  | null = null;
@@ -37,13 +45,16 @@ export class SearchFieldComponent {
     // Конфигурация компонента
     @Input() config?: SearchFieldInterface;
 
+    // Входной параметр: тип компонента
+    @Input() elementType?: 'small' | 'medium' | 'large';
+
     // Метод обработки ввода
-    onSearchField(event: any): void {
+    public onSearchField(event: any): void {
         this.elementValue = event.target.value;
-    }
+    };
 
     // Метод для очистки поля ввода
-    clearSearchField(): void {
+    public clearSearchField(): void {
         this.elementValue = '';
-    }
+    };
 }
