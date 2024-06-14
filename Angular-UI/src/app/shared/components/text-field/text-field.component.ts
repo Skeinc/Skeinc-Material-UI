@@ -3,7 +3,7 @@ import { TextFieldInterface } from "../../interfaces/components/text-field.inter
 import { Subject } from "rxjs";
 
 @Component({
-    selector: 'app-text-field',
+    selector: 'ui-text-field',
     templateUrl: './text-field.component.html',
     styleUrl: './text-field.component.scss',
 })

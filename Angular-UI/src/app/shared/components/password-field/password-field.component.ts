@@ -3,7 +3,7 @@ import { PasswordFieldInterface } from "../../interfaces/components/password-fie
 import { Subject } from "rxjs";
 
 @Component({
-    selector: 'app-password-field',
+    selector: 'ui-password-field',
     templateUrl: './password-field.component.html',
     styleUrl: './password-field.component.scss',
 })

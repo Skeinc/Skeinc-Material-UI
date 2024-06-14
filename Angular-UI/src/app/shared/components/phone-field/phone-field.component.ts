@@ -4,7 +4,7 @@ import { PhoneFieldInterface } from "../../interfaces/components/phone-field.int
 import { Subject } from "rxjs";
 
 @Component({
-    selector: 'app-phone-field',
+    selector: 'ui-phone-field',
     templateUrl: './phone-field.component.html',
     styleUrl: './phone-field.component.scss',
 })

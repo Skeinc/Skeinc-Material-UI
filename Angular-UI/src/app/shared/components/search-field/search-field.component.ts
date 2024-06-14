@@ -3,7 +3,7 @@ import { SearchFieldInterface } from "../../interfaces/components/search-field.i
 import { Subject } from "rxjs";
 
 @Component({
-    selector: 'app-search-field',
+    selector: 'ui-search-field',
     templateUrl: './search-field.component.html',
     styleUrl: './search-field.component.scss',
 })

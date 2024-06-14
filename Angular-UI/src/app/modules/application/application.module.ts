@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterOutlet } from "@angular/router";
-import { ApplicationComponent } from "./components/application.component";
+import { ApplicationComponent } from "./application.component";
 
 @NgModule({
     declarations: [

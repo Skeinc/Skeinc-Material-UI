@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { CitiesDefaultMocks, CitiesObjectMocks } from "../../../shared/mocks/cities.mocks";
+import { CitiesDefaultMocks, CitiesObjectMocks } from "../../shared/mocks/cities.mocks";
 
 @Component({
     selector: 'app-overview',

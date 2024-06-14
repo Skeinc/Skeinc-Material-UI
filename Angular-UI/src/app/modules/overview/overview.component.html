@@ -1,0 +1,121 @@
+<section class="container">
+    <header class="header">
+
+    </header>
+
+    <main class="main">
+        <article class="flex-column">
+            <p class="title">Text Field</p>
+            <div class="article-component">
+                <ui-text-field [elementType]="'small'" [elementID]="'textfield-small'" [elementName]="'textfield-small'" [elementPlaceholder]="'Your name'" [elementDisable]="false"></ui-text-field>
+            </div>
+
+            <div class="article-component">
+                <ui-text-field [elementType]="'medium'" [elementID]="'textfield-medium'" [elementName]="'textfield-medium'" [elementPlaceholder]="'Enter your name'" [elementCaption]="'Name:'" [elementDisable]="false"></ui-text-field>
+            </div>
+
+            <div class="article-component">
+                <ui-text-field [elementType]="'large'" [elementID]="'textfield-large'" [elementName]="'textfield-large'" [elementLabel]="'Your name'" [elementDisable]="false"></ui-text-field>
+            </div>
+        </article>
+
+        <article class="flex-column">
+            <p class="title">Number Field</p>
+            <div class="article-component">
+                <ui-number-field [elementType]="'small'" [elementID]="'numberfield-small'" [elementName]="'numberfield-small'" [elementPlaceholder]="'Your age'" [elementDisable]="false"></ui-number-field>
+            </div>
+
+            <div class="article-component">
+                <ui-number-field [elementType]="'medium'" [elementID]="'numberfield-medium'" [elementName]="'numberfield-medium'" [elementPlaceholder]="'Enter your age'" [elementCaption]="'Age:'" [elementDisable]="false"></ui-number-field>
+            </div>
+
+            <div class="article-component">
+                <ui-number-field [elementType]="'large'" [elementID]="'numberfield-large'" [elementName]="'numberfield-large'" [elementLabel]="'Your age'" [elementDisable]="false"></ui-number-field>
+            </div>
+        </article>
+
+        <article class="flex-column">
+            <p class="title">Password Field</p>
+            <div class="article-component">
+                <ui-password-field [elementType]="'small'" [elementID]="'passwordfield-small'" [elementName]="'passwordfield-small'" [elementPlaceholder]="'Password'" [elementDisable]="false"></ui-password-field>
+            </div>
+
+            <div class="article-component">
+                <ui-password-field [elementType]="'medium'" [elementID]="'passwordfield-medium'" [elementName]="'passwordfield-medium'" [elementPlaceholder]="'Enter your password'" [elementCaption]="'Password:'" [elementDisable]="false"></ui-password-field>
+            </div>
+
+            <div class="article-component">
+                <ui-password-field [elementType]="'large'" [elementID]="'passwordfield-large'" [elementName]="'passwordfield-large'" [elementLabel]="'Your password'" [elementDisable]="false"></ui-password-field>
+            </div>
+        </article>
+
+        <article class="flex-column">
+            <p class="title">Phone Field</p>
+            <div class="article-component">
+                <ui-phone-field [elementType]="'small'" [elementID]="'phonefield-small'" [elementName]="'phonefield-small'" [elementPlaceholder]="'Phone'" [elementDisable]="false"></ui-phone-field>
+            </div>
+
+            <div class="article-component">
+                <ui-phone-field [elementType]="'medium'" [elementID]="'phonefield-medium'" [elementName]="'phonefield-medium'" [elementPlaceholder]="'Enter your phone'" [elementCaption]="'Phone:'" [elementDisable]="false"></ui-phone-field>
+            </div>
+
+            <div class="article-component">
+                <ui-phone-field [elementType]="'large'" [elementID]="'phonefield-large'" [elementName]="'phonefield-large'" [elementLabel]="'Phone'" [elementDisable]="false"></ui-phone-field>
+            </div>
+        </article>
+
+        <article class="flex-column">
+            <p class="title">Search Field</p>
+            <div class="article-component">
+                <ui-search-field [elementType]="'small'" [elementID]="'searchfield-small'" [elementName]="'searchfield-small'" [elementPlaceholder]="'Search...'" [elementDisable]="false"></ui-search-field>
+            </div>
+
+            <div class="article-component">
+                <ui-search-field [elementType]="'medium'" [elementID]="'searchfield-medium'" [elementName]="'searchfield-medium'" [elementPlaceholder]="'Search...'" [elementCaption]="'Search:'" [elementDisable]="false"></ui-search-field>
+            </div>
+
+            <div class="article-component">
+                <ui-search-field [elementType]="'large'" [elementID]="'searchfield-large'" [elementName]="'searchfield-large'" [elementLabel]="'Search...'" [elementDisable]="false"></ui-search-field>
+            </div>
+        </article>
+
+        <article class="flex-column">
+            <p class="title">Dropdown</p>
+            <div class="article-component">
+                <app-dropdown [elementID]="'dropdown-default'" [elementName]="'dropdown-default'" [(elementValue)]="selectedCity" [elementPlaceholder]="'Select a city'" [options]="citiesObject" [optionsLabel]="'name'" [optionsValue]="'name'" [clearOption]="true" [filter]="true"></app-dropdown>
+            </div>
+        </article>
+
+        <article class="flex-column">
+            <p class="title">Textarea</p>
+            <div class="article-component">
+                <app-textarea [elementID]="'textarea-default'" [elementName]="'textarea-default'" [elementPlaceholder]="'Description'" [elementCols]="30" [elementRows]="5" [resizable]="false"></app-textarea>
+            </div>
+        </article>
+
+        <article class="flex-column">
+            <p class="title">Switch</p>
+            <div class="article-component">
+                <app-switch [elementID]="'switch-default'" [elementDisable]="false"></app-switch>
+            </div>
+        </article>
+
+        <article class="flex-column">
+            <p class="title">Code Field</p>
+            <div class="article-component">
+                <app-code-field></app-code-field>
+            </div>
+        </article>
+
+        <article class="flex-column">
+            <p class="title">Button</p>
+            <div class="article-component">
+                <app-button [elementID]="'button-default'" [elementName]="'button-default'" [elementLabel]="'Далее'"></app-button>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+
+    </footer>
+</section>

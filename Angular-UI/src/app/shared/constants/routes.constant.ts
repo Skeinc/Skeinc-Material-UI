@@ -1,6 +1,6 @@
 import { Routes } from "@angular/router";
-import { ApplicationComponent } from "../../modules/application/components/application.component";
-import { OverviewComponent } from "../../modules/overview/components/overview.component";
+import { ApplicationComponent } from "../../modules/application/application.component";
+import { OverviewComponent } from "../../modules/overview/overview.component";
 
 export const ROUTES: Routes = [
     {
