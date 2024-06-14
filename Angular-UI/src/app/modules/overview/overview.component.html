@@ -89,7 +89,11 @@
         <article class="flex-column">
             <p class="title">Textarea</p>
             <div class="article-component">
-                <app-textarea [elementID]="'textarea-default'" [elementName]="'textarea-default'" [elementPlaceholder]="'Description'" [elementCols]="30" [elementRows]="5" [resizable]="false"></app-textarea>
+                <ui-textarea [elementID]="'textarea-placeholder'" [elementName]="'textarea-placeholder'" [elementPlaceholder]="'Description'" [elementRows]="5" [resizable]="false" [elementDisable]="false"></ui-textarea>
+            </div>
+
+            <div class="article-component">
+                <ui-textarea [elementID]="'textarea-label'" [elementName]="'textarea-label'" [elementLabel]="'Description'" [elementRows]="5" [resizable]="false" [elementDisable]="false"></ui-textarea>
             </div>
         </article>
 

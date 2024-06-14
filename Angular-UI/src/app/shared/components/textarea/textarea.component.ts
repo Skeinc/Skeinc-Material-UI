@@ -1,12 +1,17 @@
-import { Component, Input } from "@angular/core";
+import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { TextareaInterface } from "../../interfaces/components/textarea.interface";
+import { Subject } from "rxjs";
 
 @Component({
-    selector: 'app-textarea',
+    selector: 'ui-textarea',
     templateUrl: './textarea.component.html',
     styleUrl: './textarea.component.scss',
 })
 export class TextareaComponent {
+    private onDestroy$: Subject<void> = new Subject<void>();
+
+    @Output() elementValueChange = new EventEmitter<string>();
+
     // ID элемента
     @Input() elementID?: string | null = null;
 
@@ -14,13 +19,16 @@ export class TextareaComponent {
     @Input() elementName?: string | null = null;
 
     // Label элемента
-    @Input() elementLabel?: string  | null = null;
+    @Input() elementLabel?: string | null = null;
+
+    // Caption элемента
+    @Input() elementCaption?: string  | null = null;
 
     // Value элемента
-    @Input() elementValue?: string  | null = null;
+    @Input() elementValue?: string | null = null;
 
     // Placeholder элемента
-    @Input() elementPlaceholder?: string  | null = null;
+    @Input() elementPlaceholder?: string | null = null;
 
     // Required параметр элемента
     @Input() elementRequired?: boolean;
