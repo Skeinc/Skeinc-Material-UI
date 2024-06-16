@@ -2,13 +2,14 @@
     <div class="dropdown flex-column">
         <div class="input-area">
             <input class="dropdown-input" type="text" autocomplete="off" readonly="true"
-            [id]="elementID"
-            [name]="elementName ?? ''"
-            [placeholder]="elementPlaceholder ?? ''"
-            [value]="elementValue !== undefined ? (optionsValue && elementValue ? elementValue[optionsValue] : elementValue) : ''"
-            [required]="elementRequired ?? false"
-            [disabled]="elementDisable ?? false"
-            (click)="toggleDropdownVisible()">
+                [id]="elementID"
+                [name]="elementName ?? ''"
+                [placeholder]="elementPlaceholder ?? ''"
+                [value]="elementValue !== undefined ? (optionsValue && elementValue ? elementValue[optionsValue] : elementValue) : ''"
+                [required]="elementRequired ?? false"
+                [disabled]="elementDisable ?? false"
+                (click)="toggleDropdownVisible()"
+            >
             
             <span *ngIf="clearOption" class="material-icons dropdown-icon icon-remove" (click)="clearValue()">close</span>
 
