@@ -75,12 +75,12 @@
 
 .dropdown-input__medium {
     height: 40px;
-    padding: 10px 20px;
+    padding: 10px 16px;
 }
 
 .dropdown-input__large {
     height: 60px;
-    padding: 10px 20px;
+    padding: 10px 16px;
 }
 
 .dropdown-label {
@@ -173,7 +173,7 @@
         transition: $transitionMedium;
 
         &:hover {
-            background-color: $colorLightGrey4;
+            background-color: $colorGrey7;
         }
 
         span {
@@ -181,7 +181,7 @@
             font-size: 14px;
             letter-spacing: -0.4px;
             line-height: 40px;
-            color: $colorDark5;
+            color: $colorDark4;
         }
     }
 }

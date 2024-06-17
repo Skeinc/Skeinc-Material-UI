@@ -173,10 +173,41 @@
             <p class="title">Dropdown</p>
             <div class="article-component">
                 <ui-dropdown
-                    [elementID]="'dropdown-default'"
-                    [elementName]="'dropdown-default'"
+                    [elementType]="'small'"
+                    [elementID]="'dropdown-small'"
+                    [elementName]="'dropdown-small'"
                     [(elementValue)]="selectedCity"
                     [elementPlaceholder]="'Select a city'"
+                    [options]="citiesObject"
+                    [optionsLabel]="'name'"
+                    [optionsValue]="'name'"
+                    [clearOption]="true"
+                    [filter]="true"
+                ></ui-dropdown>
+            </div>
+
+            <div class="article-component">
+                <ui-dropdown
+                    [elementType]="'medium'"
+                    [elementID]="'dropdown-medium'"
+                    [elementName]="'dropdown-medium'"
+                    [(elementValue)]="selectedCity"
+                    [elementPlaceholder]="'Select a city'"
+                    [options]="citiesObject"
+                    [optionsLabel]="'name'"
+                    [optionsValue]="'name'"
+                    [clearOption]="true"
+                    [filter]="true"
+                ></ui-dropdown>
+            </div>
+
+            <div class="article-component">
+                <ui-dropdown
+                    [elementType]="'large'"
+                    [elementID]="'dropdown-large'"
+                    [elementName]="'dropdown-large'"
+                    [(elementValue)]="selectedCity"
+                    [elementLabel]="'Select a city'"
                     [options]="citiesObject"
                     [optionsLabel]="'name'"
                     [optionsValue]="'name'"
