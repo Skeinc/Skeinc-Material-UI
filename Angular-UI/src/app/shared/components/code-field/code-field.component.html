@@ -1,9 +1,33 @@
 <div class="component flex-row">
-    <input #codefieldFirst class="codefield-input" type="number" id="codefieldFirst" name="codefieldFirst" autocomplete="off" [(ngModel)]="codeFirstValue" (input)="onInput($event, codefieldFirst)" (keypress)="checkMaxLenght($event)">
+    <input #codefieldFirst class="codefield-input" type="number" id="codefieldFirst" name="codefieldFirst" autocomplete="off"
+        [disabled]="false"
+        [(ngModel)]="codeFirstValue"
+        (input)="onInput($event, codefieldFirst)"
+        (keypress)="checkMaxLenght($event)"
+        (keydown)="backspaceHandler($event, codefieldFirst)"
+    >
 
-    <input #codefieldSecond class="codefield-input" type="number" id="codefieldSecond" name="codefieldSecond" autocomplete="off" [(ngModel)]="codeSecondValue" (input)="onInput($event, codefieldSecond)" (keypress)="checkMaxLenght($event)">
+    <input #codefieldSecond class="codefield-input" type="number" id="codefieldSecond" name="codefieldSecond"autocomplete="off"
+        [disabled]="false"
+        [(ngModel)]="codeSecondValue"
+        (input)="onInput($event, codefieldSecond)"
+        (keypress)="checkMaxLenght($event)"
+        (keydown)="backspaceHandler($event, codefieldSecond)"
+    >
 
-    <input #codefieldThird class="codefield-input" type="number" id="codefieldThird" name="codefieldThird" autocomplete="off" [(ngModel)]="codeThirdValue" (input)="onInput($event, codefieldThird)" (keypress)="checkMaxLenght($event)">
+    <input #codefieldThird class="codefield-input" type="number" id="codefieldThird" name="codefieldThird" autocomplete="off"
+        [disabled]="false"
+        [(ngModel)]="codeThirdValue"
+        (input)="onInput($event, codefieldThird)"
+        (keypress)="checkMaxLenght($event)"
+        (keydown)="backspaceHandler($event, codefieldThird)"
+    >
 
-    <input #codefieldFourth class="codefield-input" type="number" id="codefieldFourth" name="codefieldFourth" autocomplete="off" [(ngModel)]="codeFourthValue"  (input)="onInput($event, codefieldFourth)"(keypress)="checkMaxLenght($event)">
+    <input #codefieldFourth class="codefield-input" type="number" id="codefieldFourth" name="codefieldFourth" autocomplete="off"
+        [disabled]="false"
+        [(ngModel)]="codeFourthValue" 
+        (input)="onInput($event, codefieldFourth)"
+        (keypress)="checkMaxLenght($event)" 
+        (keydown)="backspaceHandler($event, codefieldFourth)"
+    >
 </div>

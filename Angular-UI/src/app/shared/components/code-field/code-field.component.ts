@@ -20,82 +20,98 @@ export class CodeFieldComponent {
     @ViewChild('codefieldFourth') codefieldFourth!: ElementRef;
 
     // Первое значение элемента
-    codeFirstValue: string = '';
+    public codeFirstValue: string = '';
 
     // Второе значение элемента
-    codeSecondValue: string = '';
+    public codeSecondValue: string = '';
 
     // Третье значение элемента
-    codeThirdValue: string = '';
+    public codeThirdValue: string = '';
 
     // Четвертое значение элемента
-    codeFourthValue: string = '';
+    public codeFourthValue: string = '';
 
     // Метод, который проверяет значение на максимальную длину
-    checkMaxLenght(event: any): void {
-        if (event.target.value.length > 0) {
-            event.target.value = event.target.value.toString().slice(0, 0);
-        }
-    }
+	public checkMaxLenght(event: any): void {
+		if (event.target.value.length > 0) {
+			event.target.value = event.target.value.toString().slice(0, 0);
+		};
+	};
 
     // Метод вызывается при вводе символов в поле
-    onInput(event: any, currentInput: HTMLInputElement): void {
-        this.updateCodeValue();
+	public onInput(event: any, currentInput: HTMLInputElement): void {
+		this.updateCodeValue();
 
-        const value = event.target.value;
+		if (this.codeFirstValue && this.codeSecondValue && this.codeThirdValue && this.codeFourthValue) {
+			
+		};
 
-        if (value.length === 0) {
-            this.onFocusHandler(currentInput, false);
-        }
-        else {
-            this.onFocusHandler(currentInput, true);
-        }
-    }
+		const value = event.target.value;
+
+		if (value.length === 1) {
+			this.onFocusHandler(currentInput, true);
+		};
+	};
+
+    // Обработка кнопки "Backspace"
+	public backspaceHandler(event: KeyboardEvent, currentInput: HTMLInputElement): void {
+		if (event.key === 'Backspace') {
+			if (currentInput.value.length > 0) {
+				currentInput.value = '';
+			} else {
+				// Предотвращаем действие по умолчанию, если input пустой
+				event.preventDefault();
+				// Переключаем фокус
+				this.onFocusHandler(currentInput, false);
+			}
+		}
+	};
 
     // Метод обработки фокус элемента
-    onFocusHandler(currentInput: HTMLInputElement, nextElementFocus: boolean): void {
-        const fields = [
-            this.codefieldFirst.nativeElement,
-            this.codefieldSecond.nativeElement,
-            this.codefieldThird.nativeElement,
-            this.codefieldFourth.nativeElement,
-        ];
+	public onFocusHandler(currentInput: HTMLInputElement, nextElementFocus: boolean): void {
+		const fields = [
+			this.codefieldFirst.nativeElement,
+			this.codefieldSecond.nativeElement,
+			this.codefieldThird.nativeElement,
+			this.codefieldFourth.nativeElement,
+		];
 
-        const currentIndex = fields.indexOf(currentInput);
+		const currentIndex = fields.indexOf(currentInput);
 
-        if(nextElementFocus) {
-            if (currentIndex < fields.length - 1) {
-                fields[currentIndex + 1].focus();
-            }
-        }
-        else {
-            if(currentIndex > 0) {
-                fields[currentIndex - 1].focus();
+		if (nextElementFocus) {
+			if (currentIndex < fields.length - 1) {
+				fields[currentIndex + 1].focus();
+			}
+		}
+		else {
+			if (currentIndex > 0) {
+				switch (currentIndex) {
+					case 0:
+						this.codeFirstValue = '';
+						break;
+					case 1:
+						this.codeSecondValue = '';
+						break;
+					case 2:
+						this.codeThirdValue = '';
+						break;
+					case 3:
+						this.codeFourthValue = '';
+						break;
+					default:
+						break;
+				}
 
-                switch(currentIndex) {
-                    case 0:
-                        this.codeFirstValue = '';
-                        break;
-                    case 1:
-                        this.codeSecondValue = '';
-                        break;
-                    case 2:
-                        this.codeThirdValue = '';
-                        break;
-                    case 3:
-                        this.codeFourthValue = '';
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
-    }
+				const previousInput = fields[currentIndex - 1] as HTMLInputElement;
+				previousInput.focus();
+			}
+		};
+	};
 
     // Метод для обновления значения кода
-    updateCodeValue(): void {
-        if(this.codeFirstValue && this.codeSecondValue && this.codeThirdValue && this.codeFourthValue) {
-            this.elementValue = this.codeFirstValue?.toString() + this.codeSecondValue?.toString() + this.codeThirdValue?.toString() + this.codeFourthValue?.toString();
-        }
-    }
+	private updateCodeValue(): void {
+		if (this.codeFirstValue && this.codeSecondValue && this.codeThirdValue && this.codeFourthValue) {
+			this.elementValue = this.codeFirstValue?.toString() + this.codeSecondValue?.toString() + this.codeThirdValue?.toString() + this.codeFourthValue?.toString();
+		};
+	};
 }

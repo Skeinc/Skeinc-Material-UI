@@ -245,7 +245,27 @@
         <article class="flex-column">
             <p class="title">Switch</p>
             <div class="article-component">
-                <app-switch [elementID]="'switch-default'" [elementDisable]="false"></app-switch>
+                <app-switch
+                    [elementType]="'small'"
+                    [elementID]="'switch-small'"
+                    [elementDisable]="false"
+                ></app-switch>
+            </div>
+
+            <div class="article-component">
+                <app-switch
+                    [elementType]="'medium'"
+                    [elementID]="'switch-medium'"
+                    [elementDisable]="false"
+                ></app-switch>
+            </div>
+
+            <div class="article-component">
+                <app-switch
+                    [elementType]="'large'"
+                    [elementID]="'switch-large'"
+                    [elementDisable]="false"
+                ></app-switch>
             </div>
         </article>
 

@@ -7,8 +7,6 @@
 }
 
 .switch-area {
-    width: 5rem;
-    height: 2rem;
     border: 1px solid $inputBorder;
     border-radius: 16px;
     background-color: $colorGrey6;
@@ -23,13 +21,26 @@
     }
 
     .switch-area__value {
-        width: 1.5rem;
-        height: 1.5rem;
         background-color: $colorWhite;
         border-radius: 50%;
         border: 1px solid $inputBorder;
         transform: translateX(0rem);
         transition: $transitionMedium;
+    }
+
+    .switch-area__value__small {
+        width: 18px;
+        height: 18px;
+    }
+
+    .switch-area__value__medium {
+        width: 24px;
+        height: 24px;
+    }
+
+    .switch-area__value__large {
+        width: 26px;
+        height: 26px;
     }
 
     &.active {
@@ -40,4 +51,19 @@
         background-color: $colorGrey4;
         cursor: default;
     }
+}
+
+.switch-area__small {
+    width: 54px;
+    height: 24px;
+}
+
+.switch-area__medium {
+    width: 72px;
+    height: 32px;
+}
+
+.switch-area__large {
+    width: 82px;
+    height: 36px;
 }

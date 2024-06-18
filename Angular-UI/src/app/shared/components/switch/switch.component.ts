@@ -1,4 +1,5 @@
 import { Component, Input } from "@angular/core";
+import { SwitchInterface } from "../../interfaces/components/switch.interface";
 
 @Component({
     selector: 'app-switch',
@@ -15,8 +16,14 @@ export class SwitchComponent {
     // Disable параметр элемента
     @Input() elementDisable?: boolean;
 
+    // Конфигурация для элемента
+    @Input() config?: SwitchInterface; 
+
+    // Входной параметр: тип компонента
+    @Input() elementType?: 'small' | 'medium' | 'large';
+
     // Изменяем значение элемента
-    toggleSwitchValue(): void {
+    public toggleSwitchValue(): void {
         this.elementValue = !this.elementValue;
-    }
+    };
 }
