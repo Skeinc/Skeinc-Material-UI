@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, ViewChild } from "@angular/core";
+import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from "@angular/core";
 
 @Component({
     selector: 'app-code-field',
@@ -9,6 +9,9 @@ export class CodeFieldComponent {
     constructor(
         private elementRef: ElementRef,
     ) { }
+
+	// Output для изменения значения элемента
+    @Output() elementValueChange = new EventEmitter<string>();
 
     // Значение кода
     @Input() elementValue?: string | null;
@@ -112,6 +115,8 @@ export class CodeFieldComponent {
 	private updateCodeValue(): void {
 		if (this.codeFirstValue && this.codeSecondValue && this.codeThirdValue && this.codeFourthValue) {
 			this.elementValue = this.codeFirstValue?.toString() + this.codeSecondValue?.toString() + this.codeThirdValue?.toString() + this.codeFourthValue?.toString();
+			
+			this.elementValueChange.emit(this.elementValue);
 		};
 	};
 }
