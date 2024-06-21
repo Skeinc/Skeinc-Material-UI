@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, Output } from "@angular/core";
 import { SwitchInterface } from "../../interfaces/components/switch.interface";
 
 @Component({
-    selector: 'app-switch',
+    selector: 'ui-switch',
     templateUrl: './switch.component.html',
     styleUrl: './switch.component.scss',
 })

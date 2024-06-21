@@ -1,7 +1,7 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from "@angular/core";
 
 @Component({
-    selector: 'app-code-field',
+    selector: 'ui-code-field',
     templateUrl: './code-field.component.html',
     styleUrl: './code-field.component.scss',
 })
