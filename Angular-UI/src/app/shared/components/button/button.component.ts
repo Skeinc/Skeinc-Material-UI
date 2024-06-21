@@ -7,18 +7,21 @@ import { ButtonInterface } from "../../interfaces/components/button.interface";
     styleUrl: './button.component.scss',
 })
 export class ButtonComponent {
-    // ID элемента
+    // Входной параметр: ID элемента
     @Input() elementID?: string | null = null;
 
-    // Name элемента
+    // Входной параметр: Name элемента
     @Input() elementName?: string | null = null;
 
-    // Label элемента
+    // Входной параметр: Label элемента
     @Input() elementLabel?: string  | null = null;
 
-    // Disable параметр элемента
+    // Входной параметр: отключена ли кнопка
     @Input() elementDisable?: boolean;
 
-    // Конфигурация компонента
+    // Входной параметр: иконка кноки
+    @Input() elementIconPath?: string;
+
+    // Входной параметр: конфигурация компонента
     @Input() config?: ButtonInterface;
 }

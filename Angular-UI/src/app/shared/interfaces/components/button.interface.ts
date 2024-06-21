@@ -1,7 +1,7 @@
 export interface ButtonInterface {
-    height?: string;
     backgroundColor?: string;
-    border?: string;
-    fontSize?: string;
+    borderRadius?: string;
+    borderColor?: string;
     color?: string;
+    fontSize?: string;
 }

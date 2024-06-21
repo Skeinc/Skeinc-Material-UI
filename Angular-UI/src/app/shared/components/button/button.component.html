@@ -1,10 +1,19 @@
 <div class="component">
-    <button class="button" type="button" [id]="elementID" [name]="elementName" [disabled]="elementDisable"
-    [style.height]="config?.height ?? ''"
-    [style.backgroundColor]="config?.backgroundColor ?? ''"
-    [style.border]="config?.border ?? ''">
+    <button class="button button-dark flex-center-center" type="button" aria-label="button"
+        [id]="elementID"
+        [name]="elementName"
+        [disabled]="elementDisable"
+        [style.backgroundColor]="config?.backgroundColor ?? ''"
+        [style.borderRadius]="config?.borderRadius ?? ''"
+        [style.borderColor]="config?.borderColor ?? ''"
+    >
+        <ng-container *ngIf="elementIconPath">
+            <img class="button-icon" [src]="elementIconPath" alt="Button Icon">
+        </ng-container>
+
         <span
-        [style.color]="config?.color ?? ''"
-        [style.fontSize]="config?.fontSize ?? ''">{{ elementLabel }}</span>
+            [style.color]="config?.color ?? ''"
+            [style.fontSize]="config?.fontSize ?? ''"
+        >{{ elementLabel }}</span>
     </button>
 </div>
