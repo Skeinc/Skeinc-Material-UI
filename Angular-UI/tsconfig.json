@@ -6,6 +6,21 @@
       "@styles/*": [
         "./src/styles/*"
       ],
+      "@assets/*": [
+        "./src/assets/*"
+      ],
+      "@environments/*": [
+        "./src/environments/*"
+      ],
+      "@core/*": [
+        "./src/app/core/*"
+      ],
+      "@modules/*": [
+        "./src/app/modules/*"
+      ],
+      "@shared/*": [
+        "./src/app/shared/*"
+      ]
     },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,

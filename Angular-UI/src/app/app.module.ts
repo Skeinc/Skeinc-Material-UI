@@ -1,5 +1,5 @@
-import { CommonModule } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
+import { CommonModule, LocationStrategy, PathLocationStrategy } from "@angular/common";
+import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
@@ -8,6 +8,8 @@ import { AppComponent } from "./app.component";
 import { ApplicationModule } from "./modules/application/application.module";
 import { OverviewModule } from "./modules/overview/overview.module";
 import { AppRoutingModule } from "./app-routing.module";
+import { MissingTranslationHandler, TranslateLoader, TranslateModule } from "@ngx-translate/core";
+import { HttpLoaderFactory, MissingTranslationService } from "@shared/services/localization/localization.service";
 
 @NgModule({
     declarations: [
@@ -23,12 +25,22 @@ import { AppRoutingModule } from "./app-routing.module";
         AppRoutingModule,
         ApplicationModule,
         OverviewModule,
+        // Localization
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient],
+            },
+            missingTranslationHandler: { provide: MissingTranslationHandler, useClass: MissingTranslationService },
+            useDefaultLang: false,
+        }),
     ],
     providers: [
-
+        {provide: LocationStrategy, useClass: PathLocationStrategy}
     ],
     bootstrap: [
         AppComponent,
     ],
 })
-export class AppModule {}
+export class AppModule { }
