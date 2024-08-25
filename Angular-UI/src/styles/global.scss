@@ -35,3 +35,85 @@ li {
     justify-content: center;
     align-items: center;
 }
+
+.flex-justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+.flex-align-center {
+    display: flex;
+    align-items: center;
+}
+
+// Titles
+.title-large {
+    font-size: $titleLarge;
+}
+
+.title-big {
+    font-size: $titleBig;
+}
+
+.title-medium {
+    font-size: $titleMedium;
+}
+
+.title-small {
+    font-size: $titleSmall;
+}
+
+.title-short {
+    font-size: $titleShort;
+}
+
+// Paragraphs
+.paragraph-large {
+    font-size: $paragraphLarge;
+}
+
+.paragraph-big {
+    font-size: $paragraphBig;
+}
+
+.paragraph-medium {
+    font-size: $paragraphMedium;
+}
+
+.paragraph-small {
+    font-size: $paragraphSmall;
+}
+
+.paragraph-short {
+    font-size: $paragraphShort;
+}
+
+// Font weight
+.font-regular {
+    font-weight: 400;
+}
+
+.font-medium {
+    font-weight: 500;
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+// Font Style
+.font-normal {
+    text-decoration: none;
+}
+
+.font-underline {
+    text-decoration: underline;
+}
+
+.font-strikethrough {
+    text-decoration: line-through;
+}
