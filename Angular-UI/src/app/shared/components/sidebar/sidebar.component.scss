@@ -8,6 +8,56 @@
     -webkit-box-shadow: 2px 0px 8px 0px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 2px 0px 8px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 2px 0px 8px 0px rgba(0, 0, 0, 0.1);
-    padding: 20px 0px;
+    padding: 20px;
     transition: $transitionMedium;
+}
+
+.sidebar-header {
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $colorLightGrey1;
+
+    .sidebar-header__brand {
+        width: auto;
+        height: auto;
+        gap: 10px;
+
+        .brand-image {
+            width: 32px;
+            height: 32px;
+            object-fit: cover;
+        }
+
+        .brand-name {
+            color: $colorDark3;
+        }
+    }
+
+    .sidebar-header__button {
+        width: 32px;
+        height: 32px;
+        appearance: none;
+        outline: none;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        transition: $transitionMedium;
+
+        &:hover {
+            background-color: $colorLightGrey4;
+            border-radius: 10px;
+
+            span {
+                color: $colorDark5;
+            }
+        }
+
+        span {
+            font-size: 20px;
+            color: $colorDark3;
+            transition: $transitionMedium;
+        }
+    }
 }
