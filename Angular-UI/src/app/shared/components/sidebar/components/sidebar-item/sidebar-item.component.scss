@@ -1,0 +1,59 @@
+@import '@styles/global.scss';
+@import '@styles/variables.scss';
+
+.sidebar-item {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.sidebar-item__button {
+    width: 100%;
+    height: 50px;
+    appearance: none;
+    outline: none;
+    border: none;
+    border-radius: 6px;
+    background-color: transparent;
+    justify-content: space-between;
+    padding: 0px 10px;
+    gap: 8px;
+    cursor: pointer;
+    transition: $transitionShort;
+
+    &:hover {
+        background-color: $colorBlue;
+        border-radius: 10px;
+
+        .button-container {
+            .button-label {
+                color: $colorWhite;
+            }
+        }
+
+        .button-icon {
+            color: $colorWhite;
+        }
+    }
+
+    .button-container {
+        width: calc(100% - 40px);
+        height: 100%;
+        gap: 10px;
+
+        .button-label {
+            color: $colorGrey1;
+            transition: $transitionShort;
+        }
+    }
+
+    .button-icon {
+        font-size: 22px;
+        color: $colorGrey1;
+        transition: $transitionShort;
+    }
+
+    .button-icon__arrow {
+        font-size: 18px;
+    }
+}

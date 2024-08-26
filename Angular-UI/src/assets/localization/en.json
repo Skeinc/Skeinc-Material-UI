@@ -1,0 +1,9 @@
+{
+    "sidebar": {
+        "overview": "Overview",
+        "gettingStarted": "Getting started",
+        "components": "Components",
+        "support": "Support",
+        "settings": "Settings"
+    }
+}

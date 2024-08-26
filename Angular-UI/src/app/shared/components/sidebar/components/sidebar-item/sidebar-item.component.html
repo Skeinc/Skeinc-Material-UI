@@ -1,0 +1,11 @@
+<li *ngIf="sidebarItem" class="sidebar-item flex-column">
+    <button type="button" class="sidebar-item__button flex-row flex-align-center">
+        <div class="button-container flex-row flex-align-center">
+            <span class="button-icon material-icons-outlined">{{ sidebarItem.icon }}</span>
+
+            <p class="button-label paragraph-medium font-regular">{{ sidebarItem.label | translate }}</p>
+        </div>
+
+        <span class="button-icon button-icon__arrow material-icons-round">{{ 'chevron_right' }}</span>
+    </button>
+</li>

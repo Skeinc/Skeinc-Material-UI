@@ -12,7 +12,9 @@
     </header>
 
     <ul class="sidebar-items flex-column">
-        
+        <ng-container *ngFor="let item of sidebarItems">
+            <app-sidebar-item [sidebarItem]="item"></app-sidebar-item>
+        </ng-container>
     </ul>
 
     <div class="sidebar-settings flex-row">

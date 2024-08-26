@@ -1,23 +1,20 @@
 import { NgModule } from "@angular/core";
-import { SidebarComponent } from "./sidebar.component";
+import { SidebarItemComponent } from "./sidebar-item.component";
 import { FormsModule } from "@angular/forms";
 import { CommonModule } from "@angular/common";
 import { TranslateModule } from "@ngx-translate/core";
-import { SidebarItemModule } from "./components/sidebar-item/sidebar-item.module";
 
 @NgModule({
     declarations: [
-        SidebarComponent,
+        SidebarItemComponent,
     ],
     imports: [
         FormsModule,
         CommonModule,
         TranslateModule,
-        // Components
-        SidebarItemModule,
     ],
     exports: [
-        SidebarComponent,
+        SidebarItemComponent,
     ],
 })
-export class SidebarModule {}
+export class SidebarItemModule {}

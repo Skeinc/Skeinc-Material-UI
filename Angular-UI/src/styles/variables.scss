@@ -2,6 +2,8 @@
 $colorBlack: rgba(0, 0, 0, 1);
 $colorWhite: rgba(255, 255, 255, 1);
 
+$colorBlue: rgba(64, 112, 244, 1); 
+
 $colorDark1: rgba(20, 20, 20, 1);
 $colorDark2: rgba(32, 32, 32, 1);
 $colorDark3: rgba(40, 40, 40, 1);
@@ -32,6 +34,8 @@ $paragraphMedium: 14px;
 $paragraphSmall: 12px;
 $paragraphShort: 10px;
 
+$transitionShort: 0.2s all;
 $transitionSmall: 0.3s all;
 $transitionMedium: 0.4s all;
 $transitionLong: 0.5s all;
+$transitionLarge: 0.6s all;
