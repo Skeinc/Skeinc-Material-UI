@@ -36,8 +36,8 @@
     }
 
     .sidebar-header__button {
-        width: 32px;
-        height: 32px;
+        width: 40px;
+        height: 40px;
         appearance: none;
         outline: none;
         border: none;
@@ -64,7 +64,56 @@
 
 .sidebar-items {
     width: 100%;
-    height: auto;
-    gap: 10px;
+    height: calc(100% - 61px - 61px);
     padding: 40px 0px;
+    overflow-y: auto;
+    gap: 10px;
+}
+
+.sidebar-settings {
+    width: 100%;
+    height: auto;
+    padding-top: 10px;
+    border-top: 1px dashed $colorLightGrey1;
+
+    .sidebar-settings__button {
+        width: 100%;
+        height: 50px;
+        appearance: none;
+        outline: none;
+        border: none;
+        border-radius: 6px;
+        background-color: transparent;
+        flex-shrink: 0;
+        padding: 0px 10px;
+        gap: 10px;
+        cursor: pointer;
+        transition: $transitionShort;
+
+        &:hover {
+            background-color: $colorLightGrey4;
+            border-radius: 10px;
+
+            .button-label {
+                color: $colorDark5;
+            }
+
+            .button-icon {
+                color: $colorDark5;
+            }
+        }
+
+        .button-label {
+            color: $colorDark3;
+            transition: $transitionShort;
+        }
+
+        .button-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 24px;
+            color: $colorDark3;
+            transition: $transitionShort;
+        }
+    }
 }

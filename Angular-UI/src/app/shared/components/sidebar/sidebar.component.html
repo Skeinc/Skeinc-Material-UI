@@ -1,23 +1,39 @@
-<nav class="sidebar">
+<nav class="sidebar" [@smoothAnimation]="sidebarHidden ? 'hidden' : 'visible'">
     <header class="sidebar-header flex-row flex-align-center">
-        <div class="sidebar-header__brand flex-row flex-align-center">
-            <img class="brand-image" src="assets/images/icons/app-icon.svg" alt="Logotype">
+        <ng-container *ngIf="!sidebarHidden">
+            <div class="sidebar-header__brand flex-row flex-align-center">
+                <img class="brand-image" src="assets/images/icons/app-icon.svg" alt="Logotype">
+    
+                <p class="brand-name title-short font-semibold">Skeinc UI</p>
+            </div>
+        </ng-container>
 
-            <p class="brand-name title-short font-semibold">Skeinc UI</p>
-        </div>
-
-        <button type="button" class="sidebar-header__button flex-center-center">
+        <button type="button" class="sidebar-header__button flex-center-center" (click)="toggleSidebarVisible()">
             <span class="material-icons-round">menu</span>
         </button>
     </header>
 
-    <ul class="sidebar-items flex-column">
+    <ul class="sidebar-items flex-column" role="list">
         <ng-container *ngFor="let item of sidebarItems">
             <app-sidebar-item [sidebarItem]="item"></app-sidebar-item>
         </ng-container>
     </ul>
 
     <div class="sidebar-settings flex-row">
-
+        <button 
+            type="button"
+            class="sidebar-settings__button flex-row flex-align-center"
+            [style.height]="sidebarHidden ? '40px' : '50px'"
+            [style.justifyContent]="sidebarHidden ? 'center' : 'start'"
+        >
+            <span
+                class="button-icon material-icons-outlined flex-center-center"
+                aria-hidden="true"
+            >{{ 'settings' }}</span>
+    
+            <ng-container *ngIf="!sidebarHidden">
+                <p class="button-label paragraph-big font-medium">{{ 'sidebar.settings' | translate }}</p>
+            </ng-container>
+        </button>
     </div>
 </nav>

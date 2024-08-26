@@ -1,11 +1,40 @@
-<li *ngIf="sidebarItem" class="sidebar-item flex-column">
-    <button type="button" class="sidebar-item__button flex-row flex-align-center">
+<li *ngIf="sidebarItem" class="sidebar-item flex-column" role="listitem">
+    <button
+        type="button"
+        class="sidebar-item__button flex-row flex-align-center"
+        [attr.aria-expanded]="subItemsVisible"
+        [attr.aria-controls]="'submenu-' + sidebarItem.label"
+        (click)="toogleSubItemsVisible()"
+    >
         <div class="button-container flex-row flex-align-center">
-            <span class="button-icon material-icons-outlined">{{ sidebarItem.icon }}</span>
+            <span
+                class="button-icon material-icons-outlined"
+                aria-hidden="true"
+            >{{ sidebarItem.icon }}</span>
 
-            <p class="button-label paragraph-medium font-regular">{{ sidebarItem.label | translate }}</p>
+            <p class="button-label paragraph-medium font-medium">{{ sidebarItem.label | translate }}</p>
         </div>
 
-        <span class="button-icon button-icon__arrow material-icons-round">{{ 'chevron_right' }}</span>
+        <ng-container *ngIf="sidebarItem.children.length > 0">
+            <span
+                class="button-icon button-icon__arrow material-icons-round"
+                [style.transform]="subItemsVisible ? 'rotate(90deg)' : 'rotate(0deg)'"
+                aria-hidden="true"
+            >{{ 'chevron_right' }}</span>
+        </ng-container>
     </button>
+
+    <ng-container *ngIf="sidebarItem.children.length > 0">
+        <ul
+            class="sidebar-item__children flex-column"
+            [style.marginTop]="subItemsVisible ? '10px' : '0px'"
+            [@smoothAnimation]="subItemsVisible ? 'visible' : 'hidden'"
+            [id]="'submenu-' + sidebarItem.label"
+            role="list"
+        >
+            <ng-container *ngFor="let subItem of sidebarItem.children">
+                <app-sidebar-item [sidebarItem]="subItem"></app-sidebar-item>
+            </ng-container>
+        </ul>
+    </ng-container>
 </li>
