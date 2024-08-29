@@ -13,9 +13,9 @@
         </button>
     </header>
 
-    <ul class="sidebar-items flex-column" role="list">
+    <ul class="sidebar-items flex-column" [class.sidebar-items__hidden]="sidebarHidden" role="list">
         <ng-container *ngFor="let item of sidebarItems">
-            <app-sidebar-item [sidebarItem]="item"></app-sidebar-item>
+            <app-sidebar-item [sidebarItem]="item" [hiddenItem]="sidebarHidden"></app-sidebar-item>
         </ng-container>
     </ul>
 
@@ -23,6 +23,7 @@
         <button 
             type="button"
             class="sidebar-settings__button flex-row flex-align-center"
+            [class.sidebar-settings__hidden]="sidebarHidden"
         >
             <span
                 class="button-icon material-icons-outlined flex-center-center"

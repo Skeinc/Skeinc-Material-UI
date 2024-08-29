@@ -24,6 +24,11 @@
     cursor: pointer;
     transition: $transitionShort;
 
+    &.sidebar-item__hidden {
+        height: 40px;
+        gap: 0px;
+    }
+
     &:hover {
         background-color: $colorBlue;
         border-radius: 10px;
@@ -35,6 +40,7 @@
         }
 
         .button-icon {
+            transform: scale(1.2);
             color: $colorWhite;
         }
     }
@@ -46,6 +52,9 @@
 
         .button-label {
             color: $colorGrey1;
+            text-wrap: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
             transition: $transitionShort;
         }
     }

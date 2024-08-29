@@ -2,9 +2,10 @@
     <button
         type="button"
         class="sidebar-item__button flex-row flex-align-center"
+        [class.sidebar-item__hidden]="hiddenItem"
         [attr.aria-expanded]="subItemsVisible"
         [attr.aria-controls]="'submenu-' + sidebarItem.label"
-        (click)="toogleSubItemsVisible()"
+        (click)="sidebarItemHandler(sidebarItem.route)"
     >
         <div class="button-container flex-row flex-align-center">
             <span
@@ -12,10 +13,12 @@
                 aria-hidden="true"
             >{{ sidebarItem.icon }}</span>
 
-            <p class="button-label paragraph-medium font-medium">{{ sidebarItem.label | translate }}</p>
+            <ng-container *ngIf="!hiddenItem">
+                <p class="button-label paragraph-medium font-medium">{{ sidebarItem.label | translate }}</p>
+            </ng-container>
         </div>
 
-        <ng-container *ngIf="sidebarItem.children.length > 0">
+        <ng-container *ngIf="sidebarItem.children.length > 0 && !hiddenItem">
             <span
                 class="button-icon button-icon__arrow material-icons-round"
                 [style.transform]="subItemsVisible ? 'rotate(90deg)' : 'rotate(0deg)'"
@@ -24,7 +27,7 @@
         </ng-container>
     </button>
 
-    <ng-container *ngIf="sidebarItem.children.length > 0">
+    <ng-container *ngIf="sidebarItem.children.length > 0 && !hiddenItem">
         <ul
             class="sidebar-item__children flex-column"
             [style.marginTop]="subItemsVisible ? '10px' : '0px'"

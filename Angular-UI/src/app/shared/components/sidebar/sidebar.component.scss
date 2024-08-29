@@ -32,6 +32,9 @@
 
         .brand-name {
             color: $colorDark3;
+            text-wrap: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
         }
     }
 
@@ -68,6 +71,11 @@
     padding: 40px 0px;
     overflow-y: auto;
     gap: 10px;
+    transition: $transitionMedium;
+
+    &.sidebar-items__hidden {
+        height: calc(100% - 61px - 51px);
+    }
 }
 
 .sidebar-settings {
@@ -103,8 +111,17 @@
             }
         }
 
+        &.sidebar-settings__hidden {
+            height: 40px;
+            justify-content: center;
+            gap: 0px;
+        }
+
         .button-label {
             color: $colorDark3;
+            text-wrap: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
             transition: $transitionShort;
         }
 

@@ -1,5 +1,6 @@
 import { animate, state, style, transition, trigger } from "@angular/animations";
 import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
+import { Router } from "@angular/router";
 import { SidebarItem } from "@shared/interfaces/sidebar/sidebar-item.interface";
 
 @Component({
@@ -26,14 +27,33 @@ import { SidebarItem } from "@shared/interfaces/sidebar/sidebar-item.interface";
     ],
 })
 export class SidebarItemComponent {
+    constructor (
+        private router: Router,
+    ) {}
+
     // Входной параметр: данные элемента бокового меню
     @Input() sidebarItem: SidebarItem | null = null;
+
+    // Входной параметр: является ли элемент меню скрытым
+    @Input() hiddenItem: boolean = false;
 
     // Переменная, контролирующая видимость дочерних элементов меню
     public subItemsVisible: boolean = false;
 
     // Метод для смены значения видимости дочерних элементов меню
-    public toogleSubItemsVisible(): void {
-        this.subItemsVisible = !this.subItemsVisible;
+    private toogleSubItemsVisible(): void {
+        if(!this.hiddenItem) {
+            this.subItemsVisible = !this.subItemsVisible;
+        }
+    }
+
+    // Метод для переадресации на маршрут элемента
+    private redirectToRoute(route: string): void {
+        this.router.navigateByUrl(route);
+    }
+
+    // Метод для обработки нажатия на элемент меню
+    public sidebarItemHandler(route: string): void {
+        this.sidebarItem && this.sidebarItem.children.length ? this.toogleSubItemsVisible() : this.redirectToRoute(route);
     }
 }
