@@ -1,7 +1,9 @@
 import { animate, state, style, transition, trigger } from "@angular/animations";
-import { ChangeDetectionStrategy, Component, Input } from "@angular/core";
+import { ChangeDetectionStrategy, Component, Input, OnDestroy } from "@angular/core";
 import { Router } from "@angular/router";
 import { SidebarItem } from "@shared/interfaces/sidebar/sidebar-item.interface";
+import { SidebarService } from "@shared/services/sidebar/sidebar.service";
+import { Subject } from "rxjs";
 
 @Component({
     selector: 'app-sidebar-item',
@@ -26,10 +28,14 @@ import { SidebarItem } from "@shared/interfaces/sidebar/sidebar-item.interface";
         ])
     ],
 })
-export class SidebarItemComponent {
+export class SidebarItemComponent implements OnDestroy {
     constructor (
+        private sidebarService: SidebarService,
         private router: Router,
     ) {}
+
+    // Subject для отмены подписок при уничтожении компонента
+    private onDestroy$: Subject<void> = new Subject<void>;
 
     // Входной параметр: данные элемента бокового меню
     @Input() sidebarItem: SidebarItem | null = null;
@@ -40,11 +46,19 @@ export class SidebarItemComponent {
     // Переменная, контролирующая видимость дочерних элементов меню
     public subItemsVisible: boolean = false;
 
+    // Хук жизненного цикла для очистки ресурсов при уничтожении компонента
+    ngOnDestroy(): void {
+        this.onDestroy$.next();
+        this.onDestroy$.complete();
+    }
+
     // Метод для смены значения видимости дочерних элементов меню
-    private toogleSubItemsVisible(): void {
-        if(!this.hiddenItem) {
-            this.subItemsVisible = !this.subItemsVisible;
+    private toggleSubItemsVisible(): void {
+        if(this.hiddenItem) {
+            this.sidebarService.toggleSidebarVisible();
         }
+
+        this.subItemsVisible = !this.subItemsVisible;
     }
 
     // Метод для переадресации на маршрут элемента
@@ -54,6 +68,6 @@ export class SidebarItemComponent {
 
     // Метод для обработки нажатия на элемент меню
     public sidebarItemHandler(route: string): void {
-        this.sidebarItem && this.sidebarItem.children.length ? this.toogleSubItemsVisible() : this.redirectToRoute(route);
+        (this.sidebarItem && this.sidebarItem.children.length === 0) ? this.redirectToRoute(route) : this.toggleSubItemsVisible();
     }
 }

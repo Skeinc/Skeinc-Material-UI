@@ -1,7 +1,9 @@
 import { animate, state, style, transition, trigger } from "@angular/animations";
-import { ChangeDetectionStrategy, Component } from "@angular/core";
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from "@angular/core";
 import { SIDEBAR_ITEMS } from "@shared/constants/sidebar-items.constant";
 import { SidebarItem } from "@shared/interfaces/sidebar/sidebar-item.interface";
+import { SidebarService } from "@shared/services/sidebar/sidebar.service";
+import { Subject, takeUntil } from "rxjs";
 
 @Component({
     selector: 'app-sidebar',
@@ -24,15 +26,51 @@ import { SidebarItem } from "@shared/interfaces/sidebar/sidebar-item.interface";
         ])
     ],
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit, OnDestroy {
+    constructor (
+        private sidebarService: SidebarService,
+    ) {}
+
+    // Subject для отмены подписок при уничтожении компонента
+    private onDestroy$: Subject<void> = new Subject<void>;
+
     // Переменная хранит в себе конфигурацию для элементов меню
     public sidebarItems: SidebarItem[] = SIDEBAR_ITEMS;
 
-    // Переменная обозначает скрыто ли меню
-    public sidebarHidden: boolean = false;
+    // Переменная обозначает видимость меню
+    public sidebarVisible: boolean = true;
+
+    // Хук жизненного цикла для инициализации компонента
+    ngOnInit(): void {
+        this.syncSidebarVisible();
+
+        this.subscribeSidebarVisible();
+    }
+
+    // Хук жизненного цикла для очистки ресурсов при уничтожении компонента
+    ngOnDestroy(): void {
+        this.onDestroy$.next();
+        this.onDestroy$.complete();
+    }
 
     // Метод для смены видимости меню
     public toggleSidebarVisible(): void {
-        this.sidebarHidden = !this.sidebarHidden;
+        this.sidebarService.toggleSidebarVisible();
+    }
+
+    // Метод для синхронизации видимости меню с локальным хранилищем
+    private syncSidebarVisible(): void {
+        const localStorageSidebarVisible: boolean = localStorage.getItem('sidebarVisible') === 'open';
+
+        if(this.sidebarVisible !== localStorageSidebarVisible) this.toggleSidebarVisible();
+    }
+
+    // Метод для подписки на изменение видимости меню
+    private subscribeSidebarVisible(): void {
+        this.sidebarService.sidebarVisible$.pipe(takeUntil(this.onDestroy$)).subscribe((isVisible: boolean) => {
+            this.sidebarVisible = isVisible;
+
+            localStorage.setItem('sidebarVisible', isVisible ? 'open' : 'hidden')
+        });
     }
 }

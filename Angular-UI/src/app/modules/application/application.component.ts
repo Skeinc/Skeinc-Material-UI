@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from "@angular/core";
 import { environment, localizationCodes } from "../../../environments/environment";
 import { TranslateService } from "@ngx-translate/core";
 import { LanguageCodeEnum, LanguageShortCodeEnum } from "@shared/enums/language/language.enum";
@@ -10,12 +9,12 @@ import { Subject } from "rxjs";
     selector: 'app-application',
     templateUrl: './application.component.html',
     styleUrl: './application.component.scss',
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ApplicationComponent implements OnInit, OnDestroy {
     constructor (
         private translateService: TranslateService,
         private languageService: LanguageService,
-        private router: Router,
     ) {}
 
     // Subject для отслеживания уничтожения компонента
@@ -26,7 +25,7 @@ export class ApplicationComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         // Определяем языковые параметры браузера
-        let browserLangCode: LanguageShortCodeEnum = (localStorage.getItem('language-code') ?? this.translateService.getBrowserLang() ?? environment.defaultLocalization) as LanguageShortCodeEnum;
+        let browserLangCode: LanguageShortCodeEnum = (localStorage.getItem('languageCode') ?? this.translateService.getBrowserLang() ?? environment.defaultLocalization) as LanguageShortCodeEnum;
         
         let language: LanguageShortCodeEnum = this.getLanguageByCode(browserLangCode);
 
@@ -38,19 +37,11 @@ export class ApplicationComponent implements OnInit, OnDestroy {
         this.languageService.setLanguage(localizationCodes[language].code);
 
         this.translateService.use(language);
-
-        // Переадресация на обзор компонентов
-        this.redirectToOverview();
     }
 
     ngOnDestroy(): void {
         this.onDestroy$.next();
         this.onDestroy$.complete();
-    }
-
-    // Переадресация на обзор компонентов
-    private redirectToOverview(): void {
-        this.router.navigateByUrl('overview');
     }
 
     // Метод для определения языка по его коду

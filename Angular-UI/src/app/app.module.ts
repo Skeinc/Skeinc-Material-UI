@@ -6,10 +6,10 @@ import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from "./app.component";
 import { ApplicationModule } from "./modules/application/application.module";
-import { OverviewModule } from "./modules/overview/overview.module";
 import { AppRoutingModule } from "./app-routing.module";
 import { MissingTranslationHandler, TranslateLoader, TranslateModule } from "@ngx-translate/core";
 import { HttpLoaderFactory, MissingTranslationService } from "@shared/services/localization/localization.service";
+import { LayoutModule } from "@modules/layout/layout.module";
 
 @NgModule({
     declarations: [
@@ -24,7 +24,6 @@ import { HttpLoaderFactory, MissingTranslationService } from "@shared/services/l
         // Modules
         AppRoutingModule,
         ApplicationModule,
-        OverviewModule,
         // Localization
         TranslateModule.forRoot({
             loader: {

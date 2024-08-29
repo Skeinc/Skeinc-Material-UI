@@ -1,6 +1,6 @@
-<nav class="sidebar" [@smoothAnimation]="sidebarHidden ? 'hidden' : 'visible'">
+<nav class="sidebar" [@smoothAnimation]="sidebarVisible ? 'visible' : 'hidden'">
     <header class="sidebar-header flex-row flex-align-center">
-        <ng-container *ngIf="!sidebarHidden">
+        <ng-container *ngIf="sidebarVisible">
             <div class="sidebar-header__brand flex-row flex-align-center">
                 <img class="brand-image" src="assets/images/icons/app-icon.svg" alt="Logotype">
     
@@ -13,9 +13,9 @@
         </button>
     </header>
 
-    <ul class="sidebar-items flex-column" [class.sidebar-items__hidden]="sidebarHidden" role="list">
+    <ul class="sidebar-items flex-column" [class.sidebar-items__hidden]="!sidebarVisible" role="list">
         <ng-container *ngFor="let item of sidebarItems">
-            <app-sidebar-item [sidebarItem]="item" [hiddenItem]="sidebarHidden"></app-sidebar-item>
+            <app-sidebar-item [sidebarItem]="item" [hiddenItem]="!sidebarVisible"></app-sidebar-item>
         </ng-container>
     </ul>
 
@@ -23,14 +23,14 @@
         <button 
             type="button"
             class="sidebar-settings__button flex-row flex-align-center"
-            [class.sidebar-settings__hidden]="sidebarHidden"
+            [class.sidebar-settings__hidden]="!sidebarVisible"
         >
             <span
                 class="button-icon material-icons-outlined flex-center-center"
                 aria-hidden="true"
             >{{ 'settings' }}</span>
     
-            <ng-container *ngIf="!sidebarHidden">
+            <ng-container *ngIf="sidebarVisible">
                 <p class="button-label paragraph-big font-medium">{{ 'sidebar.settings' | translate }}</p>
             </ng-container>
         </button>

@@ -4,26 +4,8 @@ export const SIDEBAR_ITEMS: SidebarItem[] = [
     {
         label: 'sidebar.overview',
         icon: 'widgets',
-        route: '',
-        children: [],
-    },
-    {
-        label: 'sidebar.gettingStarted',
-        icon: 'home',
-        route: '',
-        children: [],
-    },
-    {
-        label: 'sidebar.components',
-        icon: 'explore',
-        route: '',
+        route: 'overview',
         children: [
-            {
-                label: 'sidebar.overview',
-                icon: 'widgets',
-                route: '',
-                children: [],
-            },
             {
                 label: 'sidebar.gettingStarted',
                 icon: 'home',
@@ -43,6 +25,18 @@ export const SIDEBAR_ITEMS: SidebarItem[] = [
                 children: [],
             }
         ],
+    },
+    {
+        label: 'sidebar.gettingStarted',
+        icon: 'home',
+        route: '',
+        children: [],
+    },
+    {
+        label: 'sidebar.components',
+        icon: 'explore',
+        route: '',
+        children: [],
     },
     {
         label: 'sidebar.support',
