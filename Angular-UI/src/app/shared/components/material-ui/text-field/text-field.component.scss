@@ -2,5 +2,13 @@
 @import '@styles/variables.scss';
 
 .component {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.input-area {
+    width: 100%;
+    height: auto;
     position: relative;
 }

@@ -5,6 +5,7 @@ import { CommonModule } from "@angular/common";
 import { TranslateModule } from "@ngx-translate/core";
 import { SidebarModule } from "@shared/components/sidebar/sidebar.module";
 import { RouterOutlet } from "@angular/router";
+import { ComponentsModule } from "@modules/components/components.module";
 
 @NgModule({
     declarations: [
@@ -17,6 +18,8 @@ import { RouterOutlet } from "@angular/router";
         TranslateModule,
         // Components
         SidebarModule,
+        // Modules
+        ComponentsModule,
     ],
     exports: [
         LayoutComponent,

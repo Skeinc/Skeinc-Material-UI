@@ -37,7 +37,7 @@ export class TextFieldComponent implements OnInit {
     @Input() elementDisable?: boolean = false;
 
     ngOnInit(): void {
-        if(this.elementID === null && this.elementName === null) {
+        if(!this.elementID && !this.elementName) {
             this.elementID = generateRandomID('text-field');
             this.elementName = generateRandomName('text-field');
         }

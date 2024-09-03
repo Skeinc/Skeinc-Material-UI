@@ -1,12 +1,22 @@
 <div class="component">
-    <input
-        class="textfield-input"
-        [type]="'text'"
-        [id]="elementID"
-        [name]="elementName"
-        [placeholder]="elementPlaceholder"
-        [readOnly]="elementReadonly"
-        [required]="elementRequired"
-        [disabled]="elementDisable"
-    >
+    <div class="textfield-controllers flex-row">
+
+    </div>
+
+    <div class="textfield-area">
+        <input
+            class="textfield-input"
+            [type]="'text'"
+            [id]="elementID"
+            [name]="elementName"
+            [placeholder]="elementPlaceholder ?? ''"
+            [readOnly]="elementReadonly"
+            [required]="elementRequired"
+            [disabled]="elementDisable"
+        >
+
+        <ng-container *ngIf="elementMaxlenght">
+            <span class="textfield-maxlength">{{ (elementValue ? elementValue.length : 0) }}/{{ elementMaxlenght }}</span>
+        </ng-container>
+    </div>
 </div>
