@@ -16,8 +16,12 @@ export const ROUTES: Routes = [
     {
         path: 'components',
         component: ComponentsComponent,
-        pathMatch: 'full',
-        children: [],
+        children: [
+            {
+                path: 'textfield',
+                loadChildren: () => import('@modules/components/modules/text-field-demo/text-field-demo.module').then((module) => module.TextFieldDemoModule),
+            }
+        ],
     },
     {
         path: '**',

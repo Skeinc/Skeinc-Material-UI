@@ -24,6 +24,9 @@ export class TextFieldComponent implements OnInit {
     // Входной параметр: Value элемента
     @Input() elementValue?: string;
 
+    // Входной параметр: Maxlenght элемента
+    @Input() elementMaxlenght?: number;
+
     // Входной параметр: Required
     @Input() elementRequired?: boolean = false;
 
