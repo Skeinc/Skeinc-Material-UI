@@ -4,6 +4,9 @@
         "gettingStarted": "Getting started",
         "components": "Components",
         "support": "Support",
-        "settings": "Settings"
+        "settings": "Settings",
+        "componentsItems": {
+            "textfield": "Textfield"
+        }
     }
 }

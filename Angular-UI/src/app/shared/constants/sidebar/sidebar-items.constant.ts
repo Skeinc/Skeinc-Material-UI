@@ -6,12 +6,14 @@ export const SIDEBAR_ITEMS: SidebarItem[] = [
         icon: 'widgets',
         route: 'overview',
         children: [],
+        isVisible: true,
     },
     {
         label: 'sidebar.gettingStarted',
         icon: 'home',
         route: '',
         children: [],
+        isVisible: true,
     },
     {
         label: 'sidebar.components',
@@ -23,13 +25,16 @@ export const SIDEBAR_ITEMS: SidebarItem[] = [
                 icon: '',
                 route: 'components/textfield',
                 children: [],
+                isVisible: true,
             }
         ],
+        isVisible: true,
     },
     {
         label: 'sidebar.support',
         icon: 'info',
         route: '',
         children: [],
+        isVisible: true,
     }
 ];

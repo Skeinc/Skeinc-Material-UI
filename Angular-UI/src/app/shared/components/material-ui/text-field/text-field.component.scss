@@ -7,8 +7,67 @@
     position: relative;
 }
 
-.input-area {
+.textfield-area {
     width: 100%;
     height: auto;
     position: relative;
+
+    .textfield-area__input {
+        width: 100%;
+        appearance: none;
+        outline: none;
+        border: 1px solid $colorLightGrey3;
+        border-radius: 10px;
+        background-color: $colorWhite;
+        color: $colorDark5;
+        transition: $transitionMedium;
+
+        &:hover {
+            border-radius: 16px;
+        }
+
+        &:read-only {
+            color: $colorGrey3;
+        }
+
+        &:invalid {
+            border: 1px solid $colorRed;
+        }
+
+        &:disabled {
+            background-color: $colorLightGrey4;
+
+            &:hover {
+                border-radius: 10px;
+            }
+        }
+
+        &:focus,
+        &:active,
+        &:not(:placeholder-shown) {
+            border-radius: 16px;
+        }
+
+        &::placeholder {
+            color: $colorGrey5;
+        }
+
+        &.size-small {
+            height: 32px;
+            padding: 0px 16px;
+            font-size: $paragraphSmall;
+        }
+
+        &.size-medium {
+            height: 40px;
+            padding: 0px 20px;
+            font-size: $paragraphMedium;
+        }
+
+        &.size-big {
+            height: 60px;
+            padding: 0px 24px;
+            font-size: $paragraphBig;
+        }
+    }
 }

@@ -15,7 +15,9 @@
 
     <ul class="sidebar-items flex-column" [class.sidebar-items__hidden]="!sidebarVisible" role="list">
         <ng-container *ngFor="let item of sidebarItems">
-            <app-sidebar-item [sidebarItem]="item" [hiddenItem]="!sidebarVisible"></app-sidebar-item>
+            <ng-container *ngIf="item.isVisible">
+                <app-sidebar-item [sidebarItem]="item" [hiddenItem]="!sidebarVisible"></app-sidebar-item>
+            </ng-container>
         </ng-container>
     </ul>
 

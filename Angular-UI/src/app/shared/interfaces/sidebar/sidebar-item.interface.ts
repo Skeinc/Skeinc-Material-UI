@@ -3,4 +3,5 @@ export interface SidebarItem {
     icon: string;
     route: string;
     children: SidebarItem[];
+    isVisible: boolean;
 }

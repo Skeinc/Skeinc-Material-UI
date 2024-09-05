@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from "@angular/animations";
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from "@angular/core";
-import { SIDEBAR_ITEMS } from "@shared/constants/sidebar-items.constant";
+import { SIDEBAR_ITEMS } from "@shared/constants/sidebar/sidebar-items.constant";
 import { SidebarItem } from "@shared/interfaces/sidebar/sidebar-item.interface";
 import { SidebarService } from "@shared/services/sidebar/sidebar.service";
 import { Subject, takeUntil } from "rxjs";

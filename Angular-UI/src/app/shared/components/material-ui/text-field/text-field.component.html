@@ -1,22 +1,41 @@
 <div class="component">
-    <div class="textfield-controllers flex-row">
+    <div class="textfield-controllers flex-row flex-align-center">
+        <ng-container *ngIf="elementLabel">
+            
+        </ng-container>
 
+        <ng-container *ngIf="elementAction">
+
+        </ng-container>
     </div>
 
     <div class="textfield-area">
         <input
-            class="textfield-input"
+            class="textfield-area__input"
+            [class.size-small]="elementSize === 'small'"
+            [class.size-medium]="elementSize === 'medium'"
+            [class.size-big]="elementSize === 'big'"
             [type]="'text'"
             [id]="elementID"
             [name]="elementName"
+            [value]="elementValue"
             [placeholder]="elementPlaceholder ?? ''"
             [readOnly]="elementReadonly"
             [required]="elementRequired"
             [disabled]="elementDisable"
+            [ngStyle]="{
+                'height': elementConfig?.height || '',
+                'border': elementConfig?.border || '',
+                'border-radius': elementConfig?.borderRadius || '',
+                'font-size': elementConfig?.fontSize || '',
+                'font-weight': elementConfig?.fontWeight || '',
+                'text-align': elementConfig?.textAlign || '',
+                'color': elementConfig?.color || '',
+            }"
         >
 
         <ng-container *ngIf="elementMaxlenght">
-            <span class="textfield-maxlength">{{ (elementValue ? elementValue.length : 0) }}/{{ elementMaxlenght }}</span>
+            <span class="textfield-area__maxlength">{{ elementValue.length }}/{{ elementMaxlenght }}</span>
         </ng-container>
     </div>
 </div>

@@ -2,6 +2,9 @@
 $colorBlack: rgba(0, 0, 0, 1);
 $colorWhite: rgba(255, 255, 255, 1);
 
+$colorRed: rgba(249, 92, 92, 1);
+$colorGreen: rgba(15, 181, 71, 1);
+$colorYellow: rgba(246, 255, 51, 1);
 $colorBlue: rgba(64, 112, 244, 1); 
 
 $colorDark1: rgba(20, 20, 20, 1);
@@ -22,18 +25,21 @@ $colorLightGrey3: rgba(230, 230, 230, 1);
 $colorLightGrey4: rgba(240, 240, 240, 1);
 $colorLightGrey5: rgba(250, 250, 250, 1);
 
+// Titles
 $titleLarge: 64px;
 $titleBig: 48px;
 $titleMedium: 32px;
 $titleSmall: 24px;
 $titleShort: 20px;
 
+// Paragraphes
 $paragraphLarge: 18px;
 $paragraphBig: 16px;
 $paragraphMedium: 14px;
 $paragraphSmall: 12px;
 $paragraphShort: 10px;
 
+// Transitions
 $transitionShort: 0.2s all;
 $transitionSmall: 0.3s all;
 $transitionMedium: 0.4s all;
