@@ -1,8 +1,13 @@
 <li *ngIf="sidebarItem" class="sidebar-item flex-column" role="listitem">
+    <ng-container *ngIf="sidebarItem.caption">
+        <p class="sidebar-item__caption paragraph-medium font-semibold">{{ sidebarItem.caption | translate }}</p>
+    </ng-container>
+
     <button
         type="button"
         class="sidebar-item__button flex-row flex-align-center"
         [class.sidebar-item__hidden]="hiddenItem"
+        [class.sidebar-item__child]="childItem"
         [attr.aria-expanded]="subItemsVisible"
         [attr.aria-controls]="'submenu-' + sidebarItem.label"
         (click)="sidebarItemHandler(sidebarItem.route)"
@@ -14,7 +19,9 @@
             >{{ sidebarItem.icon }}</span>
 
             <ng-container *ngIf="!hiddenItem">
-                <p class="button-label paragraph-medium font-medium">{{ sidebarItem.label | translate }}</p>
+                <p
+                    class="button-label paragraph-medium font-medium" 
+                >{{ sidebarItem.label | translate }}</p>
             </ng-container>
         </div>
 
@@ -27,7 +34,7 @@
         </ng-container>
     </button>
 
-    <ng-container *ngIf="sidebarItem.children.length > 0 && !hiddenItem">
+    <ng-container *ngIf="sidebarItem.children.length > 0 && !hiddenItem && !childItem">
         <ul
             class="sidebar-item__children flex-column"
             [style.marginTop]="subItemsVisible ? '10px' : '0px'"
@@ -36,7 +43,7 @@
             role="list"
         >
             <ng-container *ngFor="let subItem of sidebarItem.children">
-                <app-sidebar-item [sidebarItem]="subItem"></app-sidebar-item>
+                <app-sidebar-item [sidebarItem]="subItem" [childItem]="true"></app-sidebar-item>
             </ng-container>
         </ul>
     </ng-container>
