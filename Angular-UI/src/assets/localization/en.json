@@ -6,7 +6,12 @@
         "support": "Support",
         "settings": "Settings",
         "componentsItems": {
-            "textfield": "Textfield"
+            "formatting": {
+                "title": "Formatting",
+                "children": {
+                    "textfield": "Textfield"
+                }
+            }
         }
     }
 }

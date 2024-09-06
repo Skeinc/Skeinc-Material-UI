@@ -43,6 +43,9 @@ export class SidebarItemComponent implements OnDestroy {
     // Входной параметр: является ли элемент меню скрытым
     @Input() hiddenItem: boolean = false;
 
+    // Входной параметр: является ли элемент меню дочерним
+    @Input() childItem: boolean = false;
+
     // Переменная, контролирующая видимость дочерних элементов меню
     public subItemsVisible: boolean = false;
 

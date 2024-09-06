@@ -6,7 +6,12 @@
         "support": "Помощь",
         "settings": "Настройки",
         "componentsItems": {
-            "textfield": "Textfield"
+            "formatting": {
+                "title": "Форматирование",
+                "children": {
+                    "textfield": "Textfield"
+                }
+            }
         }
     }
 }

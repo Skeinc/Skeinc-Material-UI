@@ -21,7 +21,8 @@ export const SIDEBAR_ITEMS: SidebarItem[] = [
         route: '',
         children: [
             {
-                label: 'Textfield',
+
+                label: 'sidebar.componentsItems.formatting.children.textfield',
                 icon: '',
                 route: 'components/textfield',
                 children: [],
