@@ -7,6 +7,16 @@
     position: relative;
 }
 
+.textfield-controllers {
+    width: 100%;
+    height: auto;
+    justify-content: space-between;
+
+    .textfield-controllers__label {
+        color: $colorDark5;
+    }
+}
+
 .textfield-area {
     width: 100%;
     height: auto;
