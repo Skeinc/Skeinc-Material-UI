@@ -1,0 +1,24 @@
+<div class="component">
+    <div class="tab-menu flex-column">
+        <ul class="tabs">
+            <li
+                *ngFor="let tab of elementTabs; let i = index"
+                class="tabs-item flex-row flex-align-center"
+                [class.tab-active]="i === selectedTabIndex"
+                (click)="selectTab(i)"    
+            >
+                <ng-container *ngIf="tab.icon">
+                    <span class="tab-icon material-icons-round">{{ tab.icon }}</span>
+                </ng-container>
+
+                <p class="tab-label paragraph-medium">{{ tab.label | translate }}</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="tab-content">
+        <ng-container *ngIf="selectedTabIndex">
+            <ng-container *ngTemplateOutlet="elementTabs[selectedTabIndex].content"></ng-container>
+        </ng-container>
+    </div>
+</div>

@@ -15,6 +15,28 @@
     .textfield-controllers__label {
         color: $colorDark5;
     }
+
+    .textfeild-controllers__action {
+        width: auto;
+        height: auto;
+        appearance: none;
+        outline: none;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        transition: $transitionMedium;
+
+        &:hover {
+            span {
+                text-decoration: underline;
+            }
+        }
+
+        span {
+            color: $colorDark5;
+            transition: $transitionMedium;
+        }
+    }
 }
 
 .textfield-area {

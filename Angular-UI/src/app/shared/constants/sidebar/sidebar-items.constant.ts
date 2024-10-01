@@ -1,4 +1,4 @@
-import { SidebarItem } from "@shared/interfaces/sidebar/sidebar-item.interface";
+import { SidebarItem } from "@shared/interfaces/menu/sidebar/sidebar-item.interface";
 
 export const SIDEBAR_ITEMS: SidebarItem[] = [
     {

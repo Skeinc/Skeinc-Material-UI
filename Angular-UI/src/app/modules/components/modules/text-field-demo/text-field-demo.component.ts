@@ -1,7 +1,5 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy } from "@angular/core";
-import { LanguageCodeEnum } from "@shared/enums/language/language.enum";
-import { LanguageService } from "@shared/services/language/language.service";
-import { Subject, takeUntil } from "rxjs";
+import { AfterViewInit, ChangeDetectionStrategy, Component, TemplateRef, ViewChild } from "@angular/core";
+import { TabMenuItemsInterface } from "@shared/interfaces/menu/tab-menu/tab-menu-items.interface";
 
 @Component({
     selector: 'app-text-field-demo',
@@ -9,30 +7,27 @@ import { Subject, takeUntil } from "rxjs";
     styleUrl: './text-field-demo.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TextFieldDemoComponent implements OnDestroy {
-    constructor (
-        private languageService: LanguageService,
-        private cdr: ChangeDetectorRef,
-    ) {
-        // Определяем текущий язык в CRM
-        this.currentLanguage = languageService.getLanguage();
+export class TextFieldDemoComponent implements AfterViewInit {
+    // Декораторы ViewChild для привязки к шаблонам вкладок
+    @ViewChild('documentation-content') documentationContent!: TemplateRef<any>;
+    @ViewChild('API-content') APIContent!: TemplateRef<any>;
 
-        // Отслеживаем изменение языка
-        this.languageService.language$.pipe(takeUntil(this.onDestroy$)).subscribe((language: LanguageCodeEnum) => {
-            this.currentLanguage = language;
+    // Данные вкладок
+    public componentTabs: TabMenuItemsInterface[] = [];
 
-            this.cdr.markForCheck();
-        });
-    }
-
-    // Subject для отслеживания уничтожения компонента
-    private onDestroy$: Subject<void> = new Subject<void>();
-
-    // Текущий язык системы
-    private currentLanguage: LanguageCodeEnum = LanguageCodeEnum.EN;
-
-    ngOnDestroy(): void {
-        this.onDestroy$.next();
-        this.onDestroy$.complete();
+    ngAfterViewInit(): void {
+        // Инициализация вкладок после загрузки контента
+        this.componentTabs = [
+            { 
+                icon: 'home',
+                label: 'Документация',
+                content: this.documentationContent
+            },
+            {
+                icon: 'home',
+                label: 'API',
+                content: this.APIContent
+            }
+        ];
     }
 }

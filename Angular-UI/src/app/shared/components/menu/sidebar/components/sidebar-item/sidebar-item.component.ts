@@ -1,7 +1,7 @@
 import { animate, state, style, transition, trigger } from "@angular/animations";
 import { ChangeDetectionStrategy, Component, Input, OnDestroy } from "@angular/core";
 import { Router } from "@angular/router";
-import { SidebarItem } from "@shared/interfaces/sidebar/sidebar-item.interface";
+import { SidebarItem } from "@shared/interfaces/menu/sidebar/sidebar-item.interface";
 import { SidebarService } from "@shared/services/sidebar/sidebar.service";
 import { Subject } from "rxjs";
 

@@ -1,3 +1,12 @@
 <section class="demonstration">
-    
+    <app-tab-menu [elementTabs]="componentTabs"></app-tab-menu>
+
+    <!-- Определяем шаблоны контента для каждой вкладки -->
+    <ng-template #tab1Content>
+        <p>Контент для первой вкладки</p>
+    </ng-template>
+
+    <ng-template #tab2Content>
+        <p>Контент для второй вкладки</p>
+    </ng-template>
 </section>

@@ -1,10 +1,8 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from "@angular/core";
-import { LanguageCodeEnum } from "@shared/enums/language/language.enum";
-import { TextFieldConfig } from "@shared/interfaces/material-ui/text-field/text-field.config";
-import { LanguageService } from "@shared/services/language/language.service";
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { TextFieldConfig } from "@shared/interfaces/formatting/text-field/text-field.config";
 import { generateRandomID } from "@shared/utilities/generate-random-id.util";
 import { generateRandomName } from "@shared/utilities/generate-random-name.util";
-import { Subject, takeUntil } from "rxjs";
+import { Subject } from "rxjs";
 
 @Component({
     selector: 'app-text-field',
@@ -12,21 +10,7 @@ import { Subject, takeUntil } from "rxjs";
     styleUrl: './text-field.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TextFieldComponent implements OnInit, OnDestroy {
-    constructor (
-        private languageService: LanguageService,
-        private cdr: ChangeDetectorRef,
-    ) {
-        // Определяем текущий язык в CRM
-        this.currentLanguage = languageService.getLanguage();
-
-        // Отслеживаем изменение языка
-        this.languageService.language$.pipe(takeUntil(this.onDestroy$)).subscribe((language: LanguageCodeEnum) => {
-            this.currentLanguage = language;
-
-            this.cdr.markForCheck();
-        });
-    }
+export class TextFieldComponent implements OnInit {
 
     // Subject для отслеживания уничтожения компонента
     private onDestroy$: Subject<void> = new Subject<void>();
@@ -73,22 +57,17 @@ export class TextFieldComponent implements OnInit, OnDestroy {
     // Входной параметр: Действие контроллера
     @Input() elementAction?: () => void;
 
+    // Входной параметр: Название контроллера
+    @Input() elementActionName?: string;
+
     // Входной параметр: конфигурация элемента
     @Input() elementConfig?: TextFieldConfig;
-
-    // Текущий язык системы
-    private currentLanguage: LanguageCodeEnum = LanguageCodeEnum.EN;
 
     ngOnInit(): void {
         if(!this.elementID && !this.elementName) {
             this.elementID = generateRandomID('text-field');
             this.elementName = generateRandomName('text-field');
         }
-    }
-
-    ngOnDestroy(): void {
-        this.onDestroy$.next();
-        this.onDestroy$.complete();
     }
 
     // Метод для отслеживания ввода символов
