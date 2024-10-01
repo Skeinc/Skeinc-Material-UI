@@ -6,3 +6,73 @@
     height: auto;
     position: relative;
 }
+
+.tab-menu {
+    width: 100%;
+    height: auto;
+    gap: 20px;
+}
+
+.tabs {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid $colorLightGrey1;
+
+    .tabs-item {
+        width: auto;
+        height: auto;
+        padding: 0px 24px 12px;
+        background-color: transparent;
+        gap: 6px;
+        cursor: pointer;
+        transition: gap 0.3s ease;
+
+        &:hover {
+            border-bottom: 1px solid $colorGrey3;
+            margin-bottom: -1px;
+            gap: 8px;
+        }
+
+        &.tab-active {
+            border-bottom: 1px solid $colorBlue;
+            margin-bottom: -1px;
+
+            .tab-icon {
+                background: $colorBlue;
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+
+            .tab-label {
+                background: $colorBlue;
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            }
+        }
+
+        .tab-icon {
+            font-size: 20px;
+            background: $colorDark5;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            transition: $transitionMedium;
+        }
+
+        .tab-label {
+            background: $colorDark5;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 0.05em;
+            transition: $transitionMedium;
+        }
+    }
+
+    .tab-content {
+        width: 100%;
+        height: auto;
+    }
+}

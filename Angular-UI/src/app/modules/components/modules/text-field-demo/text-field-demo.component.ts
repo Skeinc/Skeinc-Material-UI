@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, TemplateRef, ViewChild } from "@angular/core";
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, TemplateRef, ViewChild } from "@angular/core";
 import { TabMenuItemsInterface } from "@shared/interfaces/menu/tab-menu/tab-menu-items.interface";
 
 @Component({
@@ -8,9 +8,13 @@ import { TabMenuItemsInterface } from "@shared/interfaces/menu/tab-menu/tab-menu
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextFieldDemoComponent implements AfterViewInit {
+    constructor (
+        private cdr: ChangeDetectorRef,
+    ) {}
+
     // Декораторы ViewChild для привязки к шаблонам вкладок
-    @ViewChild('documentation-content') documentationContent!: TemplateRef<any>;
-    @ViewChild('API-content') APIContent!: TemplateRef<any>;
+    @ViewChild('documentationContent') documentationContent!: TemplateRef<any>;
+    @ViewChild('APIContent') APIContent!: TemplateRef<any>;
 
     // Данные вкладок
     public componentTabs: TabMenuItemsInterface[] = [];
@@ -19,15 +23,15 @@ export class TextFieldDemoComponent implements AfterViewInit {
         // Инициализация вкладок после загрузки контента
         this.componentTabs = [
             { 
-                icon: 'home',
-                label: 'Документация',
+                label: 'components.documentation',
                 content: this.documentationContent
             },
             {
-                icon: 'home',
-                label: 'API',
+                label: 'components.api',
                 content: this.APIContent
             }
         ];
+
+        this.cdr.detectChanges();
     }
 }

@@ -1,12 +1,18 @@
 <section class="demonstration">
-    <app-tab-menu [elementTabs]="componentTabs"></app-tab-menu>
+    <app-tab-menu [elementTabs]="componentTabs" [selectedTabIndex]="0"></app-tab-menu>
 
     <!-- Определяем шаблоны контента для каждой вкладки -->
-    <ng-template #tab1Content>
-        <p>Контент для первой вкладки</p>
+    <ng-template #documentationContent>
+        <section class="documentation flex-column">
+            <header class="header flex-column">
+                <h1 class="header-title title-medium font-semibold">{{ 'components.children.textfield.documentation.title' | translate }}</h1>
+            
+                <p class="header-description paragraph-big font-medium">{{ 'components.children.textfield.documentation.description' | translate }}</p>
+            </header>
+        </section>
     </ng-template>
 
-    <ng-template #tab2Content>
-        <p>Контент для второй вкладки</p>
+    <ng-template #APIContent>
+        <section class="api flex-column"></section>
     </ng-template>
 </section>

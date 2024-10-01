@@ -6,3 +6,29 @@
     height: 100%;
     position: relative;
 }
+
+.documentation {
+    width: 100%;
+    height: auto;
+    gap: 40px;
+
+    .header {
+        width: 100%;
+        height: auto;
+        gap: 10px;
+
+        .header-title {
+            color: $colorDark2;
+        }
+
+        .header-description {
+            color: $colorDark5;
+        }
+    }
+}
+
+.api {
+    width: 100%;
+    height: auto;
+    gap: 40px;
+}

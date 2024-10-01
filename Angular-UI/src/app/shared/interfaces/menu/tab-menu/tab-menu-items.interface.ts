@@ -1,5 +1,7 @@
+import { TemplateRef } from "@angular/core";
+
 export interface TabMenuItemsInterface {
     icon?: string;
     label: string;
-    content?: any;
+    content: TemplateRef<any>;
 }

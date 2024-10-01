@@ -13,5 +13,18 @@
                 }
             }
         }
+    },
+    "components": {
+        "title": "Components",
+        "documentation": "Documentation",
+        "api": "API",
+        "children": {
+            "textfield": {
+                "documentation": {
+                    "title": "Textfield",
+                    "description": "It's a custom text field with support for styles, labels, and actions configurations. The component provides flexibility in changing sizes, styles, data entry management and display of information."
+                }
+            }
+        }
     }
 }

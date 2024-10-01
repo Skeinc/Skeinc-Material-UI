@@ -12,10 +12,10 @@ export class TabMenuComponent {
     @Input() elementTabs: TabMenuItemsInterface[] = [];
 
     // Входной параметр: выбранный индекс
-    @Input() selectedTabIndex?: number | null = null;
+    @Input() selectedTabIndex?: number | null = 0;
 
     // Метод для выбора раздела
     public selectTab(index: number): void {
-        this.selectedTabIndex === index ? this.selectedTabIndex = null : this.selectedTabIndex = index;
+        this.selectedTabIndex = index;
     }
 }
