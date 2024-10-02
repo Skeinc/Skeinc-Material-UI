@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { TextFieldConfig } from "@shared/interfaces/formatting/text-field/text-field.config";
 import { generateRandomID } from "@shared/utilities/generate-random-id.util";
 import { generateRandomName } from "@shared/utilities/generate-random-name.util";
@@ -11,6 +11,9 @@ import { Subject } from "rxjs";
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextFieldComponent implements OnInit {
+    constructor (
+        private cdr: ChangeDetectorRef,
+    ) {}
 
     // Subject для отслеживания уничтожения компонента
     private onDestroy$: Subject<void> = new Subject<void>();
@@ -55,10 +58,13 @@ export class TextFieldComponent implements OnInit {
     @Input() elementInvalid?: boolean = false;
 
     // Входной параметр: Действие контроллера
-    @Input() elementAction?: () => void;
+    @Input() elementAction?: () => any;
 
     // Входной параметр: Название контроллера
     @Input() elementActionName?: string;
+
+    // Входной параметр: Подсказка
+    @Input() elementHelper?: string;
 
     // Входной параметр: конфигурация элемента
     @Input() elementConfig?: TextFieldConfig;
@@ -79,5 +85,12 @@ export class TextFieldComponent implements OnInit {
 
         // Эмитим обновленное значение
         this.elementValueChange.emit(value);
+    }
+
+    // Метод, который может вызываться при необходимости
+    public onAction(): void {
+        if (this.elementAction) {
+            this.elementAction();
+        }
     }
 }

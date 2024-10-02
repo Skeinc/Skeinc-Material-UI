@@ -11,6 +11,7 @@
     width: 100%;
     height: auto;
     justify-content: space-between;
+    margin-bottom: 4px;
 
     .textfield-controllers__label {
         color: $colorDark5;
@@ -28,12 +29,13 @@
 
         &:hover {
             span {
-                text-decoration: underline;
+                color: $colorGrey3;
             }
         }
 
         span {
             color: $colorDark5;
+            text-decoration: underline;
             transition: $transitionMedium;
         }
     }
@@ -62,26 +64,29 @@
             color: $colorGrey3;
         }
 
-        &:invalid {
-            border: 1px solid $colorRed;
-        }
-
         &:disabled {
             background-color: $colorLightGrey4;
 
             &:hover {
                 border-radius: 10px;
             }
+
+            &:focus,
+            &:active,
+            &:not(:placeholder-shown) {
+                border: 1px solid $colorLightGrey3;
+            }
         }
 
         &:focus,
         &:active,
         &:not(:placeholder-shown) {
+            border: 1px solid $colorLightGrey1;
             border-radius: 16px;
         }
 
         &::placeholder {
-            color: $colorGrey5;
+            color: $colorGrey4;
         }
 
         &.size-small {
@@ -100,6 +105,34 @@
             height: 60px;
             padding: 0px 24px;
             font-size: $paragraphBig;
+        }
+
+        &.invalid {
+            border: 1px solid $colorRed;
+        }
+    }
+
+
+    .textfield-area__maxlength {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: $colorGrey4;
+    }
+}
+
+.textfield-helper {
+    width: 100%;
+    height: auto;
+    margin-top: 4px;
+
+    .textfield-helper__text {
+        color: $colorGrey4;
+
+        &.invalid {
+            color: $colorRed;
         }
     }
 }

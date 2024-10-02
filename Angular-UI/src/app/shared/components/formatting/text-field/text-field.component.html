@@ -4,11 +4,9 @@
             <label for="elementID" class="textfield-controllers__label paragraph-medium">{{ elementLabel }}</label>
         </ng-container>
 
-        <ng-container *ngIf="elementAction">
-            <button class="textfeild-controllers__action" type="button" (click)="elementAction()">
-                <ng-container *ngIf="elementActionName">
-                    <span class="paragraph-medium">{{ elementActionName }}</span>
-                </ng-container>
+        <ng-container *ngIf="elementAction && elementActionName">
+            <button class="textfeild-controllers__action" type="button" (click)="onAction()">
+                <span class="paragraph-medium">{{ elementActionName }}</span>
             </button>
         </ng-container>
     </div>
@@ -19,14 +17,18 @@
             [class.size-small]="elementSize === 'small'"
             [class.size-medium]="elementSize === 'medium'"
             [class.size-big]="elementSize === 'big'"
+            [class.invalid]="elementInvalid"
             [type]="'text'"
             [id]="elementID"
-            [name]="elementName"
+            [name]="elementName ?? ''"
             [value]="elementValue"
             [placeholder]="elementPlaceholder ?? ''"
-            [readOnly]="elementReadonly"
-            [required]="elementRequired"
-            [disabled]="elementDisable"
+            [readOnly]="elementReadonly ?? false"
+            [required]="elementRequired ?? false"
+            [disabled]="elementDisable ?? false"
+            [maxLength]="elementMaxlenght ?? 524288"
+            [(ngModel)]="elementValue"
+            (input)="onValueChange(elementValue)"
             [ngStyle]="{
                 'height': elementConfig?.height || '',
                 'border': elementConfig?.border || '',
@@ -42,4 +44,10 @@
             <span class="textfield-area__maxlength paragraph-medium">{{ elementValue.length }}/{{ elementMaxlenght }}</span>
         </ng-container>
     </div>
+
+    <ng-container *ngIf="elementHelper">
+        <div class="textfield-helper">
+            <p class="textfield-helper__text paragraph-short font-medium" [class.invalid]="elementInvalid">{{ elementHelper }}</p>
+        </div>
+    </ng-container>
 </div>

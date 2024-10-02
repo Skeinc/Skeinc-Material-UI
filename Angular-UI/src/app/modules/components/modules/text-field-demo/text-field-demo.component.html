@@ -1,20 +1,25 @@
 <section class="demonstration">
     <app-tab-menu [elementTabs]="componentTabs" [selectedTabIndex]="0"></app-tab-menu>
 
-    <!-- Определяем шаблоны контента для каждой вкладки -->
+    <!-- Документация -->
     <ng-template #documentationContent>
         <section class="documentation flex-column">
             <header class="documentation-header flex-column">
-                <h1 class="header-title title-medium font-semibold">{{ 'components.children.textfield.documentation.title' | translate }}</h1>
+                <h1 class="documentation-header__title title-medium font-semibold">{{ 'components.children.textfield.documentation.title' | translate }}</h1>
             
-                <p class="header-description paragraph-big font-medium">{{ 'components.children.textfield.documentation.description' | translate }}</p>
+                <p class="documentation-header__description paragraph-big font-regular">{{ 'components.children.textfield.documentation.description' | translate }}</p>
             </header>
 
             <div class="documentation-main flex-column">
+                <!-- Basic -->
                 <article class="documentation-main__article flex-column">
                     <header class="article-header">
-                        <h2 class="article-header__title title-small font-semibold">Basic</h2>
+                        <h2 class="article-header__title title-small font-semibold">{{ 'components.children.textfield.documentation.basic.title' | translate }}</h2>
                     </header>
+
+                    <div class="article-description">
+                        <p class="paragraph-medium font-regular">{{ 'components.children.textfield.documentation.basic.description' | translate }}</p>
+                    </div>
 
                     <div class="article-template flex-center-center">
                         <div class="article-template__wrapper">
@@ -26,14 +31,139 @@
 
                     <div class="article-code">
                         <pre class="article-code__formatting flex-column">
-                            <span class="article-code__value paragraph-medium font-medium">
+                            <span id="textfield-basic-code" class="article-code__value paragraph-medium font-medium">
 <span class="value-tag">&lt;app-text-field</span> 
     [(elementValue)]="<span class="value-variable">componentValue</span>"
 <span class="value-tag">&gt;</span><span class="value-tag">&lt;/app-text-field&gt;</span>
                             </span>
                         </pre>
 
-                        <button type="button" class="article-code__copy flex-center-center">
+                        <button type="button" class="article-code__copy flex-center-center" (click)="callCopyCodeFunction('#textfield-basic-code')">
+                            <span class="material-icons-round">content_copy</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Advanced -->
+                <article class="documentation-main__article flex-column">
+                    <header class="article-header">
+                        <h2 class="article-header__title title-small font-semibold">{{ 'components.children.textfield.documentation.advanced.title' | translate }}</h2>
+                    </header>
+
+                    <div class="article-description">
+                        <p class="paragraph-medium font-regular">{{ 'components.children.textfield.documentation.advanced.description' | translate }}</p>
+                    </div>
+
+                    <div class="article-template flex-center-center">
+                        <div class="article-template__wrapper">
+                            <app-text-field
+                                [elementID]="'login'"
+                                [elementName]="'login'"
+                                [elementLabel]="'Login:'"
+                                [elementPlaceholder]="'Enter your login'"
+                                [elementHelper]="'Login must contain at least 5 characters'"
+                                [elementActionName]="'Change'"
+                                [(elementValue)]="login"
+                                [elementAction]="generateLogin.bind(this)"
+                                [elementMaxlenght]="20"
+                            ></app-text-field>
+                        </div>
+                    </div>
+
+                    <div class="article-code">
+                        <pre class="article-code__formatting flex-column">
+                            <span id="textfield-advanced-code" class="article-code__value paragraph-medium font-medium">
+<span class="value-tag">&lt;app-text-field</span> 
+    [elementID]="'login'"
+    [elementName]="'login'"
+    [elementLabel]="'Login:'"
+    [elementPlaceholder]="'Enter your login'"
+    [elementHelper]="'Login must contain at least 5 characters'"
+    [elementActionName]="'Generate'"
+    [(elementValue)]="<span class="value-variable">login</span>"
+    [elementAction]="<span class="value-variable">generateLogin.bind(this)</span>"
+    [elementMaxlenght]="20"
+<span class="value-tag">&gt;</span><span class="value-tag">&lt;/app-text-field&gt;</span>
+                            </span>
+                        </pre>
+
+                        <button type="button" class="article-code__copy flex-center-center" (click)="callCopyCodeFunction('#textfield-advanced-code')">
+                            <span class="material-icons-round">content_copy</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Invalid -->
+                <article class="documentation-main__article flex-column">
+                    <header class="article-header">
+                        <h2 class="article-header__title title-small font-semibold">{{ 'components.children.textfield.documentation.invalid.title' | translate }}</h2>
+                    </header>
+
+                    <div class="article-description">
+                        <p class="paragraph-medium font-regular">{{ 'components.children.textfield.documentation.invalid.description' | translate }}</p>
+                    </div>
+
+                    <div class="article-template flex-center-center">
+                        <div class="article-template__wrapper">
+                            <app-text-field 
+                                [elementPlaceholder]="'Enter your login'"
+                                [(elementValue)]="componentValue"
+                                [elementHelper]="'Login must contain at least 5 characters'"
+                                [elementInvalid]="true"
+                            ></app-text-field>
+                        </div>
+                    </div>
+
+                    <div class="article-code">
+                        <pre class="article-code__formatting flex-column">
+                            <span id="textfield-invalid-code" class="article-code__value paragraph-medium font-medium">
+<span class="value-tag">&lt;app-text-field</span> 
+    [elementPlaceholder]="'Enter your login'"
+    [(elementValue)]="<span class="value-variable">componentValue</span>"
+    [elementHelper]="'Login must contain at least 5 characters'"
+    [elementInvalid]="true"
+<span class="value-tag">&gt;</span><span class="value-tag">&lt;/app-text-field&gt;</span>
+                            </span>
+                        </pre>
+
+                        <button type="button" class="article-code__copy flex-center-center" (click)="callCopyCodeFunction('#textfield-invalid-code')">
+                            <span class="material-icons-round">content_copy</span>
+                        </button>
+                    </div>
+                </article>
+
+                <!-- Disabled -->
+                <article class="documentation-main__article flex-column">
+                    <header class="article-header">
+                        <h2 class="article-header__title title-small font-semibold">{{ 'components.children.textfield.documentation.disabled.title' | translate }}</h2>
+                    </header>
+
+                    <div class="article-description">
+                        <p class="paragraph-medium font-regular">{{ 'components.children.textfield.documentation.disabled.description' | translate }}</p>
+                    </div>
+
+                    <div class="article-template flex-center-center">
+                        <div class="article-template__wrapper">
+                            <app-text-field 
+                                [elementPlaceholder]="'Enter your login'"
+                                [(elementValue)]="componentValue"
+                                [elementDisable]="true"
+                            ></app-text-field>
+                        </div>
+                    </div>
+
+                    <div class="article-code">
+                        <pre class="article-code__formatting flex-column">
+                            <span id="textfield-disabled-code" class="article-code__value paragraph-medium font-medium">
+<span class="value-tag">&lt;app-text-field</span> 
+    [elementPlaceholder]="'Enter your login'"
+    [(elementValue)]="<span class="value-variable">componentValue</span>"
+    [elementDisable]="true"
+<span class="value-tag">&gt;</span><span class="value-tag">&lt;/app-text-field&gt;</span>
+                            </span>
+                        </pre>
+
+                        <button type="button" class="article-code__copy flex-center-center" (click)="callCopyCodeFunction('#textfield-disabled-code')">
                             <span class="material-icons-round">content_copy</span>
                         </button>
                     </div>
@@ -42,6 +172,7 @@
         </section>
     </ng-template>
 
+    <!-- API -->
     <ng-template #APIContent>
         <section class="api flex-column"></section>
     </ng-template>

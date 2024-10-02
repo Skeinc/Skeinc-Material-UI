@@ -22,7 +22,23 @@
             "textfield": {
                 "documentation": {
                     "title": "Textfield",
-                    "description": "It's a custom text field with support for styles, labels, and actions configurations. The component provides flexibility in changing sizes, styles, data entry management and display of information."
+                    "description": "This is a customizable text field supporting style configurations, labels, and actions. The component offers flexibility in adjusting sizes, styles, managing input data, and displaying information.",
+                    "basic": {
+                        "title": "Basic",
+                        "description": "The basic configuration demonstrates the simplest use of the text field component. It only binds a value and offers minimal settings for handling user input without additional customization or advanced functionality."
+                    },
+                    "advanced": {
+                        "title": "Advanced",
+                        "description": "The advanced configuration demonstrates a more versatile use of the text field component. This setup includes additional properties such as a custom ID, name, label, placeholder, and helper text, providing greater control over the appearance and functionality of the component."
+                    },
+                    "invalid": {
+                        "title": "Invalid",
+                        "description": "The invalid configuration demonstrates the text field component in an error state. It may include a helper message informing users of input requirements, and the field is visually marked as invalid to help the user correct their input."
+                    },
+                    "disabled": {
+                        "title": "Disabled",
+                        "description": "The 'Disabled' configuration illustrates the text field component in a non-editable state. It does not allow the user to interact with the field but displays its current value or placeholder, making it useful for read-only views or temporarily disabling input."
+                    }
                 }
             }
         }

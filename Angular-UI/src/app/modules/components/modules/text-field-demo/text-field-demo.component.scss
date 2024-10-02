@@ -45,6 +45,15 @@
                 }
             }
 
+            .article-description {
+                width: 100%;
+                height: auto;
+
+                p {
+                    color: $colorDark5;
+                }
+            }
+
             .article-template {
                 width: 100%;
                 height: auto;
