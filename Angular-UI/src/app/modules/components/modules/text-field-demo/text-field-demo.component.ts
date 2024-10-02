@@ -19,6 +19,9 @@ export class TextFieldDemoComponent implements AfterViewInit {
     // Данные вкладок
     public componentTabs: TabMenuItemsInterface[] = [];
 
+    // Переменная для хранения значения компонента
+    public componentValue: string = '';
+
     ngAfterViewInit(): void {
         // Инициализация вкладок после загрузки контента
         this.componentTabs = [

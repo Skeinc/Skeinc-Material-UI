@@ -4,11 +4,41 @@
     <!-- Определяем шаблоны контента для каждой вкладки -->
     <ng-template #documentationContent>
         <section class="documentation flex-column">
-            <header class="header flex-column">
+            <header class="documentation-header flex-column">
                 <h1 class="header-title title-medium font-semibold">{{ 'components.children.textfield.documentation.title' | translate }}</h1>
             
                 <p class="header-description paragraph-big font-medium">{{ 'components.children.textfield.documentation.description' | translate }}</p>
             </header>
+
+            <div class="documentation-main flex-column">
+                <article class="documentation-main__article flex-column">
+                    <header class="article-header">
+                        <h2 class="article-header__title title-small font-semibold">Basic</h2>
+                    </header>
+
+                    <div class="article-template flex-center-center">
+                        <div class="article-template__wrapper">
+                            <app-text-field 
+                                [(elementValue)]="componentValue"
+                            ></app-text-field>
+                        </div>
+                    </div>
+
+                    <div class="article-code">
+                        <pre class="article-code__formatting flex-column">
+                            <span class="article-code__value paragraph-medium font-medium">
+<span class="value-tag">&lt;app-text-field</span> 
+    [(elementValue)]="<span class="value-variable">componentValue</span>"
+<span class="value-tag">&gt;</span><span class="value-tag">&lt;/app-text-field&gt;</span>
+                            </span>
+                        </pre>
+
+                        <button type="button" class="article-code__copy flex-center-center">
+                            <span class="material-icons-round">content_copy</span>
+                        </button>
+                    </div>
+                </article>
+            </div>
         </section>
     </ng-template>
 
