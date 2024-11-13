@@ -16,6 +16,7 @@ export class TextFieldDemoComponent implements AfterViewInit {
     // Декораторы ViewChild для привязки к шаблонам вкладок
     @ViewChild('documentationContent') documentationContent!: TemplateRef<any>;
     @ViewChild('APIContent') APIContent!: TemplateRef<any>;
+    @ViewChild('sourceCodeContent') sourceCodeContent!: TemplateRef<any>;
 
     // Данные вкладок
     public componentTabs: TabMenuItemsInterface[] = [];

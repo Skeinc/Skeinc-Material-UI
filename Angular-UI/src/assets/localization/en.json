@@ -39,6 +39,9 @@
                         "title": "Disabled",
                         "description": "The 'Disabled' configuration illustrates the text field component in a non-editable state. It does not allow the user to interact with the field but displays its current value or placeholder, making it useful for read-only views or temporarily disabling input."
                     }
+                },
+                "api": {
+
                 }
             }
         }
