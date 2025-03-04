@@ -1,6 +1,6 @@
 import { TemplateRef } from "@angular/core";
 
-export interface TabMenuItemsInterface {
+export interface TabMenuItemInterface {
     icon?: string;
     label: string;
     content: TemplateRef<any>;

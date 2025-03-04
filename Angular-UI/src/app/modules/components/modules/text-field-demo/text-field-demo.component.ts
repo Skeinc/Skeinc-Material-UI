@@ -1,6 +1,7 @@
-import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, TemplateRef, ViewChild } from "@angular/core";
-import { TabMenuItemsInterface } from "@shared/interfaces/menu/tab-menu/tab-menu-items.interface";
-import { copyCodeBySelector } from "@shared/utilities/copy-code.util";
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, TemplateRef, ViewChild } from "@angular/core";
+import { TabMenuItemInterface } from "@shared/interfaces/menu/tab-menu/tab-menu-items.interface";
+import { copyCodeBySelector } from "@shared/utilities/others/copy-code.util";
+import { Subject } from "rxjs";
 
 @Component({
     selector: 'app-text-field-demo',
@@ -8,9 +9,9 @@ import { copyCodeBySelector } from "@shared/utilities/copy-code.util";
     styleUrl: './text-field-demo.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TextFieldDemoComponent implements AfterViewInit {
+export class TextFieldDemoComponent implements AfterViewInit, OnDestroy {
     constructor (
-        private cdr: ChangeDetectorRef,
+        private readonly cdr: ChangeDetectorRef,
     ) {}
 
     // Декораторы ViewChild для привязки к шаблонам вкладок
@@ -18,12 +19,12 @@ export class TextFieldDemoComponent implements AfterViewInit {
     @ViewChild('APIContent') APIContent!: TemplateRef<any>;
     @ViewChild('sourceCodeContent') sourceCodeContent!: TemplateRef<any>;
 
+    // Subject для отслеживания уничтожения компонента
+    private onDestroy$: Subject<void> = new Subject<void>();
     // Данные вкладок
-    public componentTabs: TabMenuItemsInterface[] = [];
-
+    public componentTabs: TabMenuItemInterface[] = [];
     // Переменная для хранения значения компонента
     public componentValue: string = '';
-
     // Переменная для хранения логина
     public login: string = '';
 
@@ -43,27 +44,13 @@ export class TextFieldDemoComponent implements AfterViewInit {
         this.cdr.detectChanges();
     }
 
+    ngOnDestroy(): void {
+        this.onDestroy$.next();
+        this.onDestroy$.complete();
+    }
+
     // Метод для вызова функции копирования кода
     public callCopyCodeFunction(selector: string): void {
         copyCodeBySelector(selector);
-    }
-
-    // Метод для генерации случайного логина
-    public generateLogin(): void {
-        const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-        let login = '';
-    
-        for (let i = 0; i < 10; i++) {
-            const randomIndex = Math.floor(Math.random() * chars.length);
-            login += chars[randomIndex];
-        }
-    
-        // Добавим цифру в конце логина для большей вариативности
-        const randomDigit = Math.floor(Math.random() * 10);
-        login += randomDigit;
-    
-        this.login = login;
-
-        this.cdr.markForCheck();
     }
 }

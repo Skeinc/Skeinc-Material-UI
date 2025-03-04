@@ -1,7 +1,7 @@
 import { animate, state, style, transition, trigger } from "@angular/animations";
 import { ChangeDetectionStrategy, Component, Input, OnDestroy } from "@angular/core";
 import { Router } from "@angular/router";
-import { SidebarItem } from "@shared/interfaces/menu/sidebar/sidebar-item.interface";
+import { SidebarItemInterface } from "@shared/interfaces/menu/sidebar/sidebar-item.interface";
 import { SidebarService } from "@shared/services/sidebar/sidebar.service";
 import { Subject } from "rxjs";
 
@@ -30,26 +30,22 @@ import { Subject } from "rxjs";
 })
 export class SidebarItemComponent implements OnDestroy {
     constructor (
-        private sidebarService: SidebarService,
-        private router: Router,
+        private readonly sidebarService: SidebarService,
+        private readonly router: Router,
     ) {}
 
-    // Subject для отмены подписок при уничтожении компонента
-    private onDestroy$: Subject<void> = new Subject<void>;
-
     // Входной параметр: данные элемента бокового меню
-    @Input() sidebarItem: SidebarItem | null = null;
-
+    @Input() sidebarItem: SidebarItemInterface | null = null;
     // Входной параметр: является ли элемент меню скрытым
     @Input() hiddenItem: boolean = false;
-
     // Входной параметр: является ли элемент меню дочерним
     @Input() childItem: boolean = false;
 
+    // Subject для отмены подписок при уничтожении компонента
+    private onDestroy$: Subject<void> = new Subject<void>;
     // Переменная, контролирующая видимость дочерних элементов меню
     public subItemsVisible: boolean = false;
 
-    // Хук жизненного цикла для очистки ресурсов при уничтожении компонента
     ngOnDestroy(): void {
         this.onDestroy$.next();
         this.onDestroy$.complete();

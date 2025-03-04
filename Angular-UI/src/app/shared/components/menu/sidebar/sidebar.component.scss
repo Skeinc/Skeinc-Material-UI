@@ -10,27 +10,53 @@
     box-shadow: 2px 0px 8px 0px rgba(0, 0, 0, 0.1);
     background-color: $colorWhite;
     padding: 20px 10px;
-}
 
-.sidebar-header {
-    width: 100%;
-    height: auto;
-    justify-content: space-between;
-    padding-bottom: 20px;
-    border-bottom: 1px solid $colorLightGrey1;
+    &__header {
+        width: 100%;
+        height: auto;
+        justify-content: space-between;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $colorLightGrey1;
 
-    .sidebar-header__brand {
+        &-button {
+            width: 40px;
+            height: 40px;
+            appearance: none;
+            outline: none;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            transition: $transitionMedium;
+
+            &:hover {
+                background-color: $colorLightGrey4;
+                border-radius: 10px;
+
+                span {
+                    color: $colorDark5;
+                }
+            }
+
+            span {
+                font-size: 20px;
+                color: $colorDark3;
+                transition: $transitionMedium;
+            }
+        }
+    }
+
+    &__brand {
         width: auto;
         height: auto;
         gap: 10px;
 
-        .brand-image {
+        &-image {
             width: 32px;
             height: 32px;
             object-fit: cover;
         }
 
-        .brand-name {
+        &-name {
             color: $colorDark3;
             text-wrap: nowrap;
             text-overflow: ellipsis;
@@ -38,86 +64,54 @@
         }
     }
 
-    .sidebar-header__button {
-        width: 40px;
-        height: 40px;
-        appearance: none;
-        outline: none;
-        border: none;
-        background-color: transparent;
-        cursor: pointer;
+    &__items {
+        width: 100%;
+        height: calc(100% - 61px - 61px);
+        padding: 40px 0px;
+        overflow-y: auto;
+        gap: 10px;
         transition: $transitionMedium;
 
-        &:hover {
-            background-color: $colorLightGrey4;
-            border-radius: 10px;
-
-            span {
-                color: $colorDark5;
-            }
-        }
-
-        span {
-            font-size: 20px;
-            color: $colorDark3;
-            transition: $transitionMedium;
+        &--hidden {
+            height: calc(100% - 61px - 51px);
         }
     }
-}
 
-.sidebar-items {
-    width: 100%;
-    height: calc(100% - 61px - 61px);
-    padding: 40px 0px;
-    overflow-y: auto;
-    gap: 10px;
-    transition: $transitionMedium;
-
-    &.sidebar-items__hidden {
-        height: calc(100% - 61px - 51px);
-    }
-}
-
-.sidebar-settings {
-    width: 100%;
-    height: auto;
-    padding-top: 10px;
-    border-top: 1px dashed $colorLightGrey1;
-
-    .sidebar-settings__button {
+    &__settings {
         width: 100%;
-        height: 50px;
-        appearance: none;
-        outline: none;
-        border: none;
-        border-radius: 6px;
-        background-color: transparent;
-        flex-shrink: 0;
-        padding: 0px 10px;
-        gap: 10px;
-        cursor: pointer;
-        transition: $transitionShort;
+        height: auto;
+        padding-top: 10px;
+        border-top: 1px dashed $colorLightGrey1;
 
-        &:hover {
-            background-color: $colorLightGrey4;
-            border-radius: 10px;
+        &-button {
+            width: 100%;
+            height: 50px;
+            appearance: none;
+            outline: none;
+            border: none;
+            border-radius: 6px;
+            background-color: transparent;
+            flex-shrink: 0;
+            padding: 0px 10px;
+            gap: 10px;
+            cursor: pointer;
+            transition: $transitionShort;
 
-            .button-label {
-                color: $colorDark5;
-            }
+            &:hover {
+                background-color: $colorLightGrey4;
+                border-radius: 10px;
 
-            .button-icon {
-                color: $colorDark5;
+                .button__settings-label {
+                    color: $colorDark5;
+                }
+
+                .button__settings-icon {
+                    color: $colorDark5;
+                }
             }
         }
 
-        &.sidebar-settings__hidden {
-            height: 40px;
-            justify-content: center;
-            gap: 0px;
-        }
-
-        .button-label {
+        &-label {
             color: $colorDark3;
             text-wrap: nowrap;
             text-overflow: ellipsis;
@@ -125,7 +119,7 @@
             transition: $transitionShort;
         }
 
-        .button-icon {
+        &-icon {
             width: 40px;
             height: 40px;
             font-size: 24px;

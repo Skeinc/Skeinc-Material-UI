@@ -50,73 +50,73 @@ li {
 }
 
 // Titles
-.title-large {
+.title--large {
     font-size: $titleLarge;
 }
 
-.title-big {
+.title--big {
     font-size: $titleBig;
 }
 
-.title-medium {
+.title--medium {
     font-size: $titleMedium;
 }
 
-.title-small {
+.title--small {
     font-size: $titleSmall;
 }
 
-.title-short {
+.title--short {
     font-size: $titleShort;
 }
 
 // Paragraphs
-.paragraph-large {
+.paragraph--large {
     font-size: $paragraphLarge;
 }
 
-.paragraph-big {
+.paragraph--big {
     font-size: $paragraphBig;
 }
 
-.paragraph-medium {
+.paragraph--medium {
     font-size: $paragraphMedium;
 }
 
-.paragraph-small {
+.paragraph--small {
     font-size: $paragraphSmall;
 }
 
-.paragraph-short {
+.paragraph--short {
     font-size: $paragraphShort;
 }
 
 // Font weight
-.font-regular {
+.font--regular {
     font-weight: 400;
 }
 
-.font-medium {
+.font--medium {
     font-weight: 500;
 }
 
-.font-semibold {
+.font--semibold {
     font-weight: 600;
 }
 
-.font-bold {
+.font--bold {
     font-weight: 700;
 }
 
 // Font Style
-.font-normal {
+.font--normal {
     text-decoration: none;
 }
 
-.font-underline {
+.font--underline {
     text-decoration: underline;
 }
 
-.font-strikethrough {
+.font--strikethrough {
     text-decoration: line-through;
 }

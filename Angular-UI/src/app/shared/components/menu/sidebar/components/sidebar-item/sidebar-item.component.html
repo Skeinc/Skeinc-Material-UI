@@ -1,33 +1,33 @@
 <li *ngIf="sidebarItem" class="sidebar-item flex-column" role="listitem">
     <ng-container *ngIf="sidebarItem.caption">
-        <p class="sidebar-item__caption paragraph-medium font-semibold">{{ sidebarItem.caption | translate }}</p>
+        <p class="sidebar-item__caption paragraph--medium font--semibold">{{ sidebarItem.caption | translate }}</p>
     </ng-container>
 
     <button
         type="button"
         class="sidebar-item__button flex-row flex-align-center"
-        [class.sidebar-item__hidden]="hiddenItem"
-        [class.sidebar-item__child]="childItem"
+        [class.sidebar-item__button--hidden]="hiddenItem"
+        [class.sidebar-item__button--child]="childItem"
         [attr.aria-expanded]="subItemsVisible"
         [attr.aria-controls]="'submenu-' + sidebarItem.label"
         (click)="sidebarItemHandler(sidebarItem.route)"
     >
-        <div class="button-container flex-row flex-align-center">
+        <div class="sidebar-item__button-container flex-row flex-align-center">
             <span
-                class="button-icon material-icons-outlined"
+                class="sidebar-item__button-icon material-icons-outlined"
                 aria-hidden="true"
             >{{ sidebarItem.icon }}</span>
 
             <ng-container *ngIf="!hiddenItem">
                 <p
-                    class="button-label paragraph-medium font-medium" 
+                    class="sidebar-item__button-label paragraph--medium font--medium" 
                 >{{ sidebarItem.label | translate }}</p>
             </ng-container>
         </div>
 
         <ng-container *ngIf="sidebarItem.children.length > 0 && !hiddenItem">
             <span
-                class="button-icon button-icon__arrow material-icons-round"
+                class="sidebar-item__button-icon sidebar-item__button-icon--arrow material-icons-round"
                 [style.transform]="subItemsVisible ? 'rotate(90deg)' : 'rotate(0deg)'"
                 aria-hidden="true"
             >{{ 'chevron_right' }}</span>

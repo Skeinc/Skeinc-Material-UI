@@ -7,119 +7,119 @@
     overflow: hidden;
     position: relative;
     flex-shrink: 0;
-}
 
-.sidebar-item__caption {
-    color: $colorGrey1;
-    text-wrap: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    margin-bottom: 10px;
-}
-
-.sidebar-item__button {
-    width: 100%;
-    height: 50px;
-    appearance: none;
-    outline: none;
-    border: none;
-    border-radius: 6px;
-    background-color: transparent;
-    justify-content: space-between;
-    flex-shrink: 0;
-    padding: 0px 10px;
-    gap: 8px;
-    cursor: pointer;
-    transition: $transitionShort;
-
-    &.sidebar-item__hidden {
-        height: 40px;
-        gap: 0px;
+    &__caption {
+        color: $colorGrey1;
+        text-wrap: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        margin-bottom: 10px;
     }
 
-    &.sidebar-item__child {
-        height: 40px;
-        border-left: 1px solid $colorLightGrey1;
-        border-radius: 0px;
-        
-        &:hover {
-            background-color: transparent;
-            border-left: 1px solid $colorBlue;
-            border-radius: 0px;
-
-            .button-container {
-                gap: 8px;
-
-                .button-label {
-                    color: $colorDark3;
-                }
-            }
-
-            .button-icon {
-                color: $colorDark3;
-            }
-        }
-
-        .button-container {
-            width: 100%;
-            gap: 6px;
-
-            .button-label {
-                font-size: 13px;
-            }
-        }
-    
-        .button-icon {
-            font-size: 16px;
-        }
-    }
-
-    &:hover {
-        background-color: $colorBlue;
-        border-radius: 10px;
-
-        .button-container {
-            .button-label {
-                color: $colorWhite;
-            }
-        }
-
-        .button-icon {
-            transform: scale(1.2);
-            color: $colorWhite;
-        }
-    }
-
-    .button-container {
-        width: calc(100% - 40px);
-        height: 100%;
-        gap: 10px;
+    &__button {
+        width: 100%;
+        height: 50px;
+        appearance: none;
+        outline: none;
+        border: none;
+        border-radius: 6px;
+        background-color: transparent;
+        justify-content: space-between;
+        flex-shrink: 0;
+        padding: 0px 10px;
+        gap: 8px;
+        cursor: pointer;
         transition: $transitionShort;
 
-        .button-label {
+        &-container {
+            width: calc(100% - 40px);
+            height: 100%;
+            gap: 10px;
+            transition: $transitionShort;
+        }
+    
+        &-label {
             color: $colorGrey1;
             text-wrap: nowrap;
             text-overflow: ellipsis;
             overflow: hidden;
             transition: $transitionShort;
         }
+    
+        &-icon {
+            font-size: 22px;
+            color: $colorGrey1;
+            transition: $transitionShort;
+    
+            &--arrow {
+                font-size: 18px;
+            }
+        }
+
+        &--hidden {
+            height: 40px;
+            gap: 0px;
+        }
+
+        &--child {
+            height: 40px;
+            border-left: 1px solid $colorLightGrey1;
+            border-radius: 0px;
+
+            &:hover {
+                background-color: transparent;
+                border-left: 1px solid $colorRed;
+                border-radius: 0px;
+
+                .sidebar-item__button-container {
+                    gap: 8px;
+
+                    .sidebar-item__button-label {
+                        color: $colorDark3;
+                    }
+                }
+
+                .sidebar-item__button-icon {
+                    color: $colorDark3;
+                }
+            }
+
+            .sidebar-item__button-container {
+                width: 100%;
+                gap: 6px;
+
+                .sidebar-item__button-label {
+                    font-size: 13px;
+                }
+            }
+
+            .sidebar-item__button-icon {
+                font-size: 16px;
+            }
+        }
+
+        &:hover {
+            background-color: $colorRed;
+            border-radius: 10px;
+    
+            .sidebar-item__button-container {
+                .sidebar-item__button-label {
+                    color: $colorWhite;
+                }
+            }
+
+            .sidebar-item__button-icon {
+                transform: scale(1.2);
+                color: $colorWhite;
+            }
+        }
     }
 
-    .button-icon {
-        font-size: 22px;
-        color: $colorGrey1;
-        transition: $transitionShort;
+    &__children {
+        width: calc(100% - 20px);
+        margin-left: 20px;
+        gap: 5px;
+        overflow: hidden;
+        transition: $transitionMedium;
     }
-
-    .button-icon__arrow {
-        font-size: 18px;
-    }
-}
-
-.sidebar-item__children {
-    width: calc(100% - 20px);
-    margin-left: 20px;
-    gap: 5px;
-    overflow: hidden;
-    transition: $transitionMedium;
 }

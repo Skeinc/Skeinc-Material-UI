@@ -1,22 +1,22 @@
 <ng-container *ngIf="elementTabs.length > 0">
     <div class="component">
         <div class="tab-menu flex-column">
-            <ul class="tabs flex-row flex-align-center">
+            <ul class="tab-menu__tabs flex-row flex-align-center">
                 <li
                     *ngFor="let tab of elementTabs; let i = index"
-                    class="tabs-item flex-row flex-align-center"
-                    [class.tab-active]="i === selectedTabIndex"
+                    class="tab-menu__tab flex-row flex-align-center"
+                    [class.tab-menu__tab--active]="i === selectedTabIndex"
                     (click)="selectTab(i)"    
                 >
                     <ng-container *ngIf="tab.icon">
-                        <span class="tab-icon material-icons-round">{{ tab.icon }}</span>
+                        <span class="tab-menu__icon material-icons-round">{{ tab.icon }}</span>
                     </ng-container>
     
-                    <p class="tab-label paragraph-medium font-medium">{{ tab.label | translate }}</p>
+                    <p class="tab-menu__label paragraph--medium font--semibold">{{ tab.label | translate }}</p>
                 </li>
             </ul>
 
-            <div class="tab-content">
+            <div class="tab-menu__content">
                 <ng-container *ngIf="selectedTabIndex !== null && selectedTabIndex !== undefined">
                     <ng-container *ngTemplateOutlet="elementTabs[selectedTabIndex].content"></ng-container>
                 </ng-container>

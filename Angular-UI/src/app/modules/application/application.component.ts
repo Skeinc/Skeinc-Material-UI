@@ -13,21 +13,30 @@ import { Subject } from "rxjs";
 })
 export class ApplicationComponent implements OnInit, OnDestroy {
     constructor (
-        private translateService: TranslateService,
-        private languageService: LanguageService,
+        private readonly translateService: TranslateService,
+        private readonly languageService: LanguageService,
     ) {}
 
     // Subject для отслеживания уничтожения компонента
     private onDestroy$: Subject<void> = new Subject<void>();
-
     // Текущий язык страницы
     public currentLanguage: LanguageCodeEnum = LanguageCodeEnum.EN;
 
     ngOnInit(): void {
         // Определяем языковые параметры браузера
-        let browserLangCode: LanguageShortCodeEnum = (localStorage.getItem('languageCode') ?? this.translateService.getBrowserLang() ?? environment.defaultLocalization) as LanguageShortCodeEnum;
+        this.setLanguageConfiguration();
+    }
+
+    ngOnDestroy(): void {
+        this.onDestroy$.next();
+        this.onDestroy$.complete();
+    }
+
+    // Метод для определения языковых параметров
+    private setLanguageConfiguration(): void {
+        const browserLangCode: LanguageShortCodeEnum = (localStorage.getItem('languageCode') ?? this.translateService.getBrowserLang() ?? environment.defaultLocalization) as LanguageShortCodeEnum;
         
-        let language: LanguageShortCodeEnum = this.getLanguageByCode(browserLangCode);
+        const language: LanguageShortCodeEnum = this.getLanguageByCode(browserLangCode);
 
         environment.languageCode = localizationCodes[language].code;
 
@@ -37,11 +46,6 @@ export class ApplicationComponent implements OnInit, OnDestroy {
         this.languageService.setLanguage(localizationCodes[language].code);
 
         this.translateService.use(language);
-    }
-
-    ngOnDestroy(): void {
-        this.onDestroy$.next();
-        this.onDestroy$.complete();
     }
 
     // Метод для определения языка по его коду

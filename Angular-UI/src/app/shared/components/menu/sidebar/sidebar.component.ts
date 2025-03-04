@@ -1,7 +1,7 @@
 import { animate, state, style, transition, trigger } from "@angular/animations";
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from "@angular/core";
 import { SIDEBAR_ITEMS } from "@shared/constants/sidebar/sidebar-items.constant";
-import { SidebarItem } from "@shared/interfaces/menu/sidebar/sidebar-item.interface";
+import { SidebarItemInterface } from "@shared/interfaces/menu/sidebar/sidebar-item.interface";
 import { SidebarService } from "@shared/services/sidebar/sidebar.service";
 import { Subject, takeUntil } from "rxjs";
 
@@ -28,15 +28,13 @@ import { Subject, takeUntil } from "rxjs";
 })
 export class SidebarComponent implements OnInit, OnDestroy {
     constructor (
-        private sidebarService: SidebarService,
+        private readonly sidebarService: SidebarService,
     ) {}
 
     // Subject для отмены подписок при уничтожении компонента
     private onDestroy$: Subject<void> = new Subject<void>;
-
     // Переменная хранит в себе конфигурацию для элементов меню
-    public sidebarItems: SidebarItem[] = SIDEBAR_ITEMS;
-
+    public sidebarItems: SidebarItemInterface[] = SIDEBAR_ITEMS;
     // Переменная обозначает видимость меню
     public sidebarVisible: boolean = true;
 

@@ -1,6 +1,6 @@
-import { SidebarItem } from "@shared/interfaces/menu/sidebar/sidebar-item.interface";
+import { SidebarItemInterface } from "@shared/interfaces/menu/sidebar/sidebar-item.interface";
 
-export const SIDEBAR_ITEMS: SidebarItem[] = [
+export const SIDEBAR_ITEMS: SidebarItemInterface[] = [
     {
         label: 'sidebar.overview',
         icon: 'widgets',
