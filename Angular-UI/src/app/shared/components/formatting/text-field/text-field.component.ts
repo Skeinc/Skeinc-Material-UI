@@ -9,6 +9,7 @@ import { Subject } from "rxjs";
     templateUrl: './text-field.component.html',
     styleUrl: './text-field.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class TextFieldComponent implements OnInit, OnDestroy {
     // Выходной параметр: Обработка изменения значения

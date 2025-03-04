@@ -6,6 +6,7 @@ import { Subject } from "rxjs";
     templateUrl: './overview.component.html',
     styleUrl: './overview.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class OverviewComponent implements OnDestroy {
     // Subject для отслеживания уничтожения компонента

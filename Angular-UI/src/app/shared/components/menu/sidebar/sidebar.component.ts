@@ -25,6 +25,7 @@ import { Subject, takeUntil } from "rxjs";
             ]),
         ])
     ],
+    standalone: false
 })
 export class SidebarComponent implements OnInit, OnDestroy {
     constructor (

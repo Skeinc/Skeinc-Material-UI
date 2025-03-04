@@ -10,6 +10,7 @@ import { Subject } from "rxjs";
     templateUrl: './application.component.html',
     styleUrl: './application.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ApplicationComponent implements OnInit, OnDestroy {
     constructor (

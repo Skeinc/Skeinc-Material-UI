@@ -8,6 +8,7 @@ import { Subject } from "rxjs";
     templateUrl: './text-field-demo.component.html',
     styleUrl: './text-field-demo.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class TextFieldDemoComponent implements AfterViewInit, OnDestroy {
     constructor (

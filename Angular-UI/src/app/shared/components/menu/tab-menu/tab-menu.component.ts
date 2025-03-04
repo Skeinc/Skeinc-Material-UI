@@ -7,6 +7,7 @@ import { Subject } from "rxjs";
     templateUrl: './tab-menu.component.html',
     styleUrl: './tab-menu.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class TabMenuComponent implements OnDestroy {
     // Входной параметр: элементы компоненты

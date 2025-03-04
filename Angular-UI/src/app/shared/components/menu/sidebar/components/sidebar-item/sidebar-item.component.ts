@@ -27,6 +27,7 @@ import { Subject } from "rxjs";
             ]),
         ])
     ],
+    standalone: false
 })
 export class SidebarItemComponent implements OnDestroy {
     constructor (
