@@ -1,2 +1,2 @@
-@import '@styles/global.scss';
-@import '@styles/variables.scss';
+@use '@styles/global.scss' as *;
+@use '@styles/variables.scss' as *;

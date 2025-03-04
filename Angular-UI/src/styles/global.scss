@@ -1,10 +1,10 @@
 // Imports
-@import 'material-icons/iconfont/material-icons.css';
-@import './demonstration.scss';
-@import './normalize.scss';
-@import './variables.scss';
-@import './fonts.scss';
-@import './reset.scss';
+@use 'material-icons/iconfont/material-icons.css';
+@use './demonstration.scss' as demonstration;
+@use './normalize.scss' as normalize;
+@use './variables.scss' as *;
+@use './fonts.scss' as fonts;
+@use './reset.scss' as reset;
 
 // Global
 * {
