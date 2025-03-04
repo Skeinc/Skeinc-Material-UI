@@ -1,5 +1,5 @@
 import { CommonModule, LocationStrategy, PathLocationStrategy } from "@angular/common";
-import { HttpClient, HttpClientModule } from "@angular/common/http";
+import { HttpClient, provideHttpClient, withInterceptorsFromDi } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
@@ -11,16 +11,15 @@ import { MissingTranslationHandler, TranslateLoader, TranslateModule } from "@ng
 import { HttpLoaderFactory, MissingTranslationService } from "@shared/services/localization/localization.service";
 import { LayoutModule } from "@modules/layout/layout.module";
 
-@NgModule({
-    declarations: [
+@NgModule({ declarations: [
         AppComponent,
     ],
-    imports: [
-        BrowserModule,
+    bootstrap: [
+        AppComponent,
+    ], imports: [BrowserModule,
         BrowserAnimationsModule,
         CommonModule,
         FormsModule,
-        HttpClientModule,
         // Modules
         AppRoutingModule,
         ApplicationModule,
@@ -33,13 +32,8 @@ import { LayoutModule } from "@modules/layout/layout.module";
             },
             missingTranslationHandler: { provide: MissingTranslationHandler, useClass: MissingTranslationService },
             useDefaultLang: false,
-        }),
-    ],
-    providers: [
-        {provide: LocationStrategy, useClass: PathLocationStrategy}
-    ],
-    bootstrap: [
-        AppComponent,
-    ],
-})
+        })], providers: [
+        { provide: LocationStrategy, useClass: PathLocationStrategy },
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule { }
